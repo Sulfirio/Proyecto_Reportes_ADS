@@ -73,6 +73,12 @@ TERCERO: Cuando termines de hacer tus tareas y quiereas mandar tu trabajo
     git rebase nombre_de_tu_branch
 
     3.-Para madar tus modificaciones ahora si puede hacer uso de push (ESTANDO EN LA RAMA master)
+
+    git push origin master
+
+NOTA: los comandos antes mencionados y que no se vea como se usan en tan en la siguiente seccion!
+
+
 *********************************************************************************************************************************************
 
 COMANDOS DEL DIA A DIA PARA USAR GIT 
