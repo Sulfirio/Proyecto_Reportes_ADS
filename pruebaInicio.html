@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>Empresa de Obras Públicas</title>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function(){
+        $('.tab').on('click', function(e){
+          e.preventDefault();
+          $('#content').load($(this).attr('href'));
+        });
+      });
+    </script>
+
+    <link rel="stylesheet" href="stPruebaMenu.css">
+
+  </head>
+
+  <body>
+    <h1>Bienvenido a la Empresa de Obras Públicas</h1>
+    <p>En nuestra empresa nos dedicamos a la construcción de infraestructuras y obras públicas de calidad para mejorar la vida de las personas y el desarrollo de las comunidades.</p>
+    <img src="img/obras-publicas.jpg" alt="Obras públicas">
+  </body>
+</html>
