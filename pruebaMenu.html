@@ -10,6 +10,7 @@
     <script src="js/funSecCatalogo.js"></script>
     <script src="js/funSecPersonal.js"></script>
     <script src="js/funSecFrentes.js"></script>
+    <script src="js/funFormulario.js"></script>
     
 
     <!--REUBICAR LOS ESTILOS PLIS-->
@@ -49,6 +50,7 @@
           <li><a href="#avances">Avances generales</a></li>
           <li><a href="#personal">Personal</a></li>
           <li><a href="#frentes">Frentes</a></li>
+          <li><a href="#formulario">Formulario</a></li>
         </ul>
       </nav>
     </header>
@@ -151,7 +153,34 @@
 
         <div class="frentes_data_container"></div>
       </section>
-      
+<!--*****************************Formulario*********************************************-->
+      <section id ="formulario">
+        <div id="personal_content_form">
+          <h2>Formulario para mandar reportes</h2>
+          <p>Puedes inviar tu reporte aqui</p>
+        </div>
+
+        <form id="form_reporte">
+          <label for="idCapturador">Id de Capturador</label><br>
+          <input type="text" id="idCapturador" name="capturador"><br>
+          
+          <label for="numero">Nivel de Urgercia</label><br>
+          <select id="numero" name="numero">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </select><br>
+  
+          <label>¿El Reporte esta aprobado?</label><br>
+          <input type="radio" id="1" name="aprobado" value="SI">
+          <label for="1">SI</label><br>
+          <input type="radio" id="3" name="aprobado" value="NO">
+          <label for="3">NO</label><br><br>
+  
+          <input type="submit" value="Enviar">
+        </form>
+      </section>
+<!--**************************************************************************************************-->
     </main>
     <script type="text/javascript" src="js/funPruebaMenu.js"></script>
   </body>

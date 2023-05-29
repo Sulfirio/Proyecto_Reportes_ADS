@@ -27,7 +27,7 @@ $(function() {
             $('#resultadoBusquedaAvances').html(response);
         }
     });
-});
+  });
 
 // AJAX para obtener las columnas en "avances"
 $.ajax({
