@@ -9,8 +9,8 @@
                 }
                 $a = $a+1;
                 echo $a;
-                $b = "";
-                $c = "";
+                $b = 1;
+                $c = "UserA";
                 $d = 0;
                 $sql = $conexion->query("INSERT INTO reporte (folio, nivelUrg, idCapturador, aprobado) VALUES ($a,$b,$c,$d)");
                 $exito = mysqli_query($conexion, $sql);
