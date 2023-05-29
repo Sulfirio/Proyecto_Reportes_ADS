@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2023 a las 03:48:14
+-- Tiempo de generación: 29-05-2023 a las 04:33:23
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -207,7 +207,9 @@ CREATE TABLE `reporte` (
 
 INSERT INTO `reporte` (`folio`, `nivelUrg`, `idCapturador`, `aprobado`) VALUES
 (1101, '2', 'UserA', 1),
-(1102, '3', 'UserB', 1);
+(1102, '3', 'UserB', 1),
+(1103, '1', 'UserA', 0),
+(1104, '1', 'UserB', 0);
 
 -- --------------------------------------------------------
 
@@ -403,13 +405,6 @@ ALTER TABLE `minutas`
 --
 ALTER TABLE `perdir`
   ADD CONSTRAINT `FKPD` FOREIGN KEY (`IDUser`) REFERENCES `usuario` (`IDUser`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `reporte`
---
-ALTER TABLE `reporte`
-  ADD CONSTRAINT `FKRep` FOREIGN KEY (`folio`) REFERENCES `captura` (`folio`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FKrep_2` FOREIGN KEY (`idCapturador`) REFERENCES `usuario` (`IDUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `residente`

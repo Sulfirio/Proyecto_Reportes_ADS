@@ -12,7 +12,7 @@
                 $b = 1;
                 $c = "UserA";
                 $d = 0;
-                $sql = $conexion->query("INSERT INTO reporte (folio, nivelUrg, idCapturador, aprobado) VALUES ($a,$b,'UserA',0)");
+                $sql = "INSERT INTO reporte (folio, nivelUrg, idCapturador, aprobado) VALUES ($a,$b,'UserB',0)";
                 $exito = mysqli_query($conexion, $sql);
                 if($exito){
                     echo "Logrado";
