@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2023 a las 07:00:28
+-- Tiempo de generación: 29-05-2023 a las 03:48:14
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -124,7 +124,14 @@ CREATE TABLE `frenteobra` (
 --
 
 INSERT INTO `frenteobra` (`idFrente`) VALUES
-(1);
+(1),
+(2),
+(3),
+(4),
+(5),
+(6),
+(7),
+(8);
 
 -- --------------------------------------------------------
 
@@ -189,16 +196,18 @@ INSERT INTO `perdir` (`IDUser`) VALUES
 
 CREATE TABLE `reporte` (
   `folio` int(11) NOT NULL,
-  `nivelUrg` char(2) NOT NULL
+  `nivelUrg` char(2) NOT NULL,
+  `idCapturador` varchar(255) NOT NULL,
+  `aprobado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `reporte`
 --
 
-INSERT INTO `reporte` (`folio`, `nivelUrg`) VALUES
-(1101, '2'),
-(1102, '3');
+INSERT INTO `reporte` (`folio`, `nivelUrg`, `idCapturador`, `aprobado`) VALUES
+(1101, '2', 'UserA', 1),
+(1102, '3', 'UserB', 1);
 
 -- --------------------------------------------------------
 
@@ -233,7 +242,7 @@ CREATE TABLE `superintendente` (
 --
 
 INSERT INTO `superintendente` (`IDUser`, `frenteObra`) VALUES
-('UserC', 1);
+('UserC', 4);
 
 -- --------------------------------------------------------
 
@@ -251,7 +260,7 @@ CREATE TABLE `supervisor` (
 --
 
 INSERT INTO `supervisor` (`IDUser`, `frenteObra`) VALUES
-('UserB', 1);
+('UserB', 5);
 
 -- --------------------------------------------------------
 
@@ -332,7 +341,8 @@ ALTER TABLE `perdir`
 -- Indices de la tabla `reporte`
 --
 ALTER TABLE `reporte`
-  ADD PRIMARY KEY (`folio`);
+  ADD PRIMARY KEY (`folio`),
+  ADD KEY `FKrep_2` (`idCapturador`);
 
 --
 -- Indices de la tabla `residente`
@@ -398,7 +408,8 @@ ALTER TABLE `perdir`
 -- Filtros para la tabla `reporte`
 --
 ALTER TABLE `reporte`
-  ADD CONSTRAINT `FKRep` FOREIGN KEY (`folio`) REFERENCES `captura` (`folio`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FKRep` FOREIGN KEY (`folio`) REFERENCES `captura` (`folio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKrep_2` FOREIGN KEY (`idCapturador`) REFERENCES `usuario` (`IDUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `residente`
