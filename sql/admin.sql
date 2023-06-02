@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2023 a las 04:33:23
+-- Tiempo de generación: 02-06-2023 a las 09:11:51
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -49,7 +49,7 @@ INSERT INTO `captura` (`folio`, `IDCapturador`, `tipoCaptura`) VALUES
 --
 
 CREATE TABLE `conceptos` (
-  `clave` char(6) NOT NULL,
+  `clave` int(6) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `descripcion` varchar(255) NOT NULL,
   `unidad` int(11) NOT NULL,
@@ -62,7 +62,27 @@ CREATE TABLE `conceptos` (
 --
 
 INSERT INTO `conceptos` (`clave`, `nombre`, `descripcion`, `unidad`, `precioUni`, `importe`) VALUES
-('1101', 'Concreto', 'Material compuesto que se utiliza en el ámbito de la construcción, formado fundamentalmente por un aglomerante al que se añade partículas o fragmentos de un agregado, agua y aditivos específicos.', 4, 100, 400);
+(1101, 'Concreto', 'Material compuesto que se utiliza en el ámbito de la construcción, formado fundamentalmente por un aglomerante al que se añade partículas o fragmentos de un agregado, agua y aditivos específicos.', 4, 100, 400);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empresa`
+--
+
+CREATE TABLE `empresa` (
+  `idCom` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `RFC` varchar(255) NOT NULL,
+  `frenteobra` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `empresa`
+--
+
+INSERT INTO `empresa` (`idCom`, `nombre`, `RFC`, `frenteobra`) VALUES
+(1, 'Raul Perez Mireida', 'VLPV130111ZA3', 1);
 
 -- --------------------------------------------------------
 
@@ -72,6 +92,7 @@ INSERT INTO `conceptos` (`clave`, `nombre`, `descripcion`, `unidad`, `precioUni`
 
 CREATE TABLE `estimacion` (
   `idEstimacion` int(11) NOT NULL,
+  `claveConcepto` int(6) NOT NULL,
   `rfc` varchar(255) NOT NULL,
   `razSoc` varchar(255) NOT NULL,
   `subtotal` int(11) NOT NULL,
@@ -80,7 +101,6 @@ CREATE TABLE `estimacion` (
   `neto` int(11) NOT NULL,
   `noFrenteObra` int(11) NOT NULL,
   `justificacion` varchar(20) NOT NULL,
-  `claveConcepto` int(11) NOT NULL,
   `idEstimador` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -88,8 +108,8 @@ CREATE TABLE `estimacion` (
 -- Volcado de datos para la tabla `estimacion`
 --
 
-INSERT INTO `estimacion` (`idEstimacion`, `rfc`, `razSoc`, `subtotal`, `IVA`, `retencion`, `neto`, `noFrenteObra`, `justificacion`, `claveConcepto`, `idEstimador`) VALUES
-(1, 'ASDF66777', 'Compra concetro', 1000, 1000, 10, 10, 1, 'Default', 1101, 'UserA');
+INSERT INTO `estimacion` (`idEstimacion`, `claveConcepto`, `rfc`, `razSoc`, `subtotal`, `IVA`, `retencion`, `neto`, `noFrenteObra`, `justificacion`, `idEstimador`) VALUES
+(1, 1101, 'ASDF66777', 'Compra concetro', 1000, 1000, 10, 10, 1, 'Default', 'UserA');
 
 -- --------------------------------------------------------
 
@@ -161,15 +181,16 @@ INSERT INTO `login` (`IDUser`, `password`) VALUES
 --
 
 CREATE TABLE `minutas` (
-  `folio` int(11) NOT NULL
+  `folio` int(11) NOT NULL,
+  `idCapturador` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `minutas`
 --
 
-INSERT INTO `minutas` (`folio`) VALUES
-(1103);
+INSERT INTO `minutas` (`folio`, `idCapturador`) VALUES
+(1103, 'UserA');
 
 -- --------------------------------------------------------
 
@@ -209,7 +230,12 @@ INSERT INTO `reporte` (`folio`, `nivelUrg`, `idCapturador`, `aprobado`) VALUES
 (1101, '2', 'UserA', 1),
 (1102, '3', 'UserB', 1),
 (1103, '1', 'UserA', 0),
-(1104, '1', 'UserB', 0);
+(1104, '1', 'UserB', 0),
+(1105, '1', 'UserB', 0),
+(1106, '1', 'UserB', 0),
+(1107, '1', 'UserB', 0),
+(1108, '1', 'UserB', 0),
+(1109, '2', 'UserC', 1);
 
 -- --------------------------------------------------------
 
@@ -272,18 +298,20 @@ INSERT INTO `supervisor` (`IDUser`, `frenteObra`) VALUES
 
 CREATE TABLE `usuario` (
   `IDUser` varchar(255) NOT NULL,
-  `userType` int(11) NOT NULL
+  `userType` int(1) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `RFC` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`IDUser`, `userType`) VALUES
-('UserA', 1),
-('UserB', 2),
-('UserC', 3),
-('UserD', 4);
+INSERT INTO `usuario` (`IDUser`, `userType`, `nombre`, `RFC`) VALUES
+('UserA', 1, 'Raul', 'WQSL471113DV0'),
+('UserB', 2, 'Maurico', 'VMMT700123PM0'),
+('UserC', 3, 'Lilia', 'OMTB200406UG2'),
+('UserD', 4, 'Saul', 'LHIV480321BG6');
 
 --
 -- Índices para tablas volcadas
@@ -303,10 +331,18 @@ ALTER TABLE `conceptos`
   ADD PRIMARY KEY (`clave`);
 
 --
+-- Indices de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`idCom`),
+  ADD UNIQUE KEY `frenteobra` (`frenteobra`);
+
+--
 -- Indices de la tabla `estimacion`
 --
 ALTER TABLE `estimacion`
-  ADD PRIMARY KEY (`idEstimacion`);
+  ADD PRIMARY KEY (`idEstimacion`,`claveConcepto`),
+  ADD KEY `FKEst1` (`claveConcepto`);
 
 --
 -- Indices de la tabla `fotografia`
@@ -331,7 +367,8 @@ ALTER TABLE `login`
 -- Indices de la tabla `minutas`
 --
 ALTER TABLE `minutas`
-  ADD PRIMARY KEY (`folio`);
+  ADD PRIMARY KEY (`folio`),
+  ADD KEY `FKMin1` (`idCapturador`);
 
 --
 -- Indices de la tabla `perdir`
@@ -383,6 +420,12 @@ ALTER TABLE `captura`
   ADD CONSTRAINT `FKCap` FOREIGN KEY (`IDCapturador`) REFERENCES `usuario` (`IDUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Filtros para la tabla `estimacion`
+--
+ALTER TABLE `estimacion`
+  ADD CONSTRAINT `FKEst1` FOREIGN KEY (`claveConcepto`) REFERENCES `conceptos` (`clave`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Filtros para la tabla `fotografia`
 --
 ALTER TABLE `fotografia`
@@ -398,7 +441,8 @@ ALTER TABLE `login`
 -- Filtros para la tabla `minutas`
 --
 ALTER TABLE `minutas`
-  ADD CONSTRAINT `FKMin` FOREIGN KEY (`folio`) REFERENCES `captura` (`folio`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FKMin` FOREIGN KEY (`folio`) REFERENCES `captura` (`folio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKMin1` FOREIGN KEY (`idCapturador`) REFERENCES `usuario` (`IDUser`);
 
 --
 -- Filtros para la tabla `perdir`
