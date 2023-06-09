@@ -1,5 +1,7 @@
 <?php
-include('conexion.php');
+session_start(); // Iniciar sesión
+
+include('../php/conexion.php');
 
 // Obtener los datos del formulario
 $email = $_POST['inputEmail'] ?? null;
@@ -19,19 +21,22 @@ $result = mysqli_stmt_get_result($stmt);
 if ($row = mysqli_fetch_assoc($result)) {
     $userType = $row['userType'];
 
+    // Almacenar el ID del usuario en la sesión
+    $_SESSION['userID'] = $row['IDUser'];
+
     // Redirigir a diferentes páginas según el tipo de usuario
     switch ($userType) {
         case 1:
-            header("Location: https://www.youtube.com");
+            header("Location: ../InicioU1.html");
             break;
         case 2:
-            header("Location: https://www.facebook.com");
+            header("Location: ../InicioU2.html");
             break;
         case 3:
-            header("Location: https://www.instagram.com");
+            header("Location: ../InicioU3.html");
             break;
         case 4:
-            header("Location: https://www.twitter.com");
+            header("Location: ../InicioU4.html");
             break;
     }
 } else {
