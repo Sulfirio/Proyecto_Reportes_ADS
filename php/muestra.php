@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
     include '../php/conexion.php';
-    $datos = $conexion->query("SELECT * FROM usuario");
+    $datos = $conexion->query("SELECT * FROM conceptos");
     $datos2 = $conexion->query("SELECT * FROM documento");
     $state = 0;
     $search = "UserA";
@@ -35,32 +35,22 @@
 </head>
 <table border ="1px">
     <thead>
-        <th>ID Estimadocion</th>
-        <th>ID Estimador</th>
-        <th>RFC</th>
-        <th>Razon social</th>
-        <th>Subtotal</th>
-        <th>IVA</th>
-        <th>Retencion</th>
-        <th>Neto</th>
-        <th>No. Frente de Obra</th>
-        <th>Justificacion</th>
-        <th>Clave concepto</th>
+        <th>Clave</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Unidades</th>
+        <th>Precio unitario</th>
+        <th>Importe</th>
     </thead>
 <tbody>
     <?php while($user = mysqli_fetch_array($datos)){ ?>
                 <tr>
-                <td><?php echo $user['idEstimacion'];?></td>
-                <td><?php echo $user['idEstimador'];?></td>
-                <td><?php echo $user['rfc'];?></td>
-                <td><?php echo $user['razSoc'];?></td>
-                <td><?php echo $user['subtotal'];?></td>
-                <td><?php echo $user['IVA'];?></td>
-                <td><?php echo $user['retencion'];?></td>
-                <td><?php echo $user['neto'];?></td>
-                <td><?php echo $user['noFrenteObra'];?></td>
-                <td><?php echo $user['justificacion'];?></td>
-                <td><?php echo $user['claveConcepto'];?></td>
+                <td><?php echo $user['clave'];?></td>
+                <td><?php echo $user['nombre'];?></td>
+                <td><?php echo $user['descripcion'];?></td>
+                <td><?php echo $user['unidad'];?></td>
+                <td><?php echo $user['precioUni'];?></td>
+                <td><?php echo $user['importe'];?></td>
             </tr>
         <?php ?>
     <?php } ?>
