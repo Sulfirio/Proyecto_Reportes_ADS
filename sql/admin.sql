@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-06-2023 a las 09:11:51
+-- Tiempo de generación: 14-06-2023 a las 21:17:59
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,27 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `admin`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `captura`
---
-
-CREATE TABLE `captura` (
-  `folio` int(11) NOT NULL,
-  `IDCapturador` varchar(255) NOT NULL,
-  `tipoCaptura` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `captura`
---
-
-INSERT INTO `captura` (`folio`, `IDCapturador`, `tipoCaptura`) VALUES
-(1101, 'UserA', 2),
-(1102, 'UserA', 1),
-(1103, 'UserD', 1);
 
 -- --------------------------------------------------------
 
@@ -62,7 +41,31 @@ CREATE TABLE `conceptos` (
 --
 
 INSERT INTO `conceptos` (`clave`, `nombre`, `descripcion`, `unidad`, `precioUni`, `importe`) VALUES
-(1101, 'Concreto', 'Material compuesto que se utiliza en el ámbito de la construcción, formado fundamentalmente por un aglomerante al que se añade partículas o fragmentos de un agregado, agua y aditivos específicos.', 4, 100, 400);
+(1101, 'Concreto', 'Material compuesto que se utiliza en el ámbito de la construcción, formado fundamentalmente por un aglomerante al que se añade partículas o fragmentos de un agregado, agua y aditivos específicos.', 4, 100, 400),
+(1102, 'Vigas de Acero', 'Elementos estructurales horizontales que brindan soporte vertical en las construcciones', 5, 100, 500),
+(1103, 'Cemento', 'Polvo fino y suave que se utiliza como conglomerante debido a que se endurece después de estar en contacto con el agua', 8, 50, 400),
+(1104, 'Albañileria', 'Dala intermedia de concreto F\'c=250Kg/cm² TMA 19 mm. sección\r\n15x20 cm. acabado común, armado con 4 varillas del # 3 y estribos\r\ndel #2 a cada 20 cm. Incluye: suministro de materiales, desperdicios,\r\ncimbrado, colado, vibrado, descimbrado, acarreos, cruce', 1, 800, 800);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `documento`
+--
+
+CREATE TABLE `documento` (
+  `folio` int(11) NOT NULL,
+  `IDCapturador` varchar(255) NOT NULL,
+  `tipoCaptura` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `documento`
+--
+
+INSERT INTO `documento` (`folio`, `IDCapturador`, `tipoCaptura`) VALUES
+(1101, 'UserA', 2),
+(1102, 'UserA', 1),
+(1103, 'UserD', 1);
 
 -- --------------------------------------------------------
 
@@ -71,7 +74,7 @@ INSERT INTO `conceptos` (`clave`, `nombre`, `descripcion`, `unidad`, `precioUni`
 --
 
 CREATE TABLE `empresa` (
-  `idCom` int(11) NOT NULL,
+  `idCon` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `RFC` varchar(255) NOT NULL,
   `frenteobra` int(11) NOT NULL
@@ -81,7 +84,7 @@ CREATE TABLE `empresa` (
 -- Volcado de datos para la tabla `empresa`
 --
 
-INSERT INTO `empresa` (`idCom`, `nombre`, `RFC`, `frenteobra`) VALUES
+INSERT INTO `empresa` (`idCon`, `nombre`, `RFC`, `frenteobra`) VALUES
 (1, 'Raul Perez Mireida', 'VLPV130111ZA3', 1);
 
 -- --------------------------------------------------------
@@ -93,23 +96,25 @@ INSERT INTO `empresa` (`idCom`, `nombre`, `RFC`, `frenteobra`) VALUES
 CREATE TABLE `estimacion` (
   `idEstimacion` int(11) NOT NULL,
   `claveConcepto` int(6) NOT NULL,
-  `rfc` varchar(255) NOT NULL,
+  `idEstimador` varchar(255) NOT NULL,
+  `noFrenteObra` int(11) NOT NULL,
   `razSoc` varchar(255) NOT NULL,
+  `justificacion` varchar(20) NOT NULL,
   `subtotal` int(11) NOT NULL,
   `IVA` int(11) NOT NULL,
   `retencion` int(11) NOT NULL,
-  `neto` int(11) NOT NULL,
-  `noFrenteObra` int(11) NOT NULL,
-  `justificacion` varchar(20) NOT NULL,
-  `idEstimador` varchar(255) NOT NULL
+  `neto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `estimacion`
 --
 
-INSERT INTO `estimacion` (`idEstimacion`, `claveConcepto`, `rfc`, `razSoc`, `subtotal`, `IVA`, `retencion`, `neto`, `noFrenteObra`, `justificacion`, `idEstimador`) VALUES
-(1, 1101, 'ASDF66777', 'Compra concetro', 1000, 1000, 10, 10, 1, 'Default', 'UserA');
+INSERT INTO `estimacion` (`idEstimacion`, `claveConcepto`, `idEstimador`, `noFrenteObra`, `razSoc`, `justificacion`, `subtotal`, `IVA`, `retencion`, `neto`) VALUES
+(1, 1101, 'UserA', 1, 'Compra concetro', '-------', 1000, 1000, 10, 10),
+(1, 1104, 'UserA', 1, 'Albañileria', '---', 1000, 1000, 10, 10),
+(2, 1101, 'UserA', 2, 'Compra concetro', '----', 1000, 1000, 10, 10),
+(2, 1103, 'UserA', 2, 'Compra cemento', '----', 1000, 1000, 10, 10);
 
 -- --------------------------------------------------------
 
@@ -218,7 +223,6 @@ INSERT INTO `perdir` (`IDUser`) VALUES
 CREATE TABLE `reporte` (
   `folio` int(11) NOT NULL,
   `nivelUrg` char(2) NOT NULL,
-  `idCapturador` varchar(255) NOT NULL,
   `aprobado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -226,16 +230,16 @@ CREATE TABLE `reporte` (
 -- Volcado de datos para la tabla `reporte`
 --
 
-INSERT INTO `reporte` (`folio`, `nivelUrg`, `idCapturador`, `aprobado`) VALUES
-(1101, '2', 'UserA', 1),
-(1102, '3', 'UserB', 1),
-(1103, '1', 'UserA', 0),
-(1104, '1', 'UserB', 0),
-(1105, '1', 'UserB', 0),
-(1106, '1', 'UserB', 0),
-(1107, '1', 'UserB', 0),
-(1108, '1', 'UserB', 0),
-(1109, '2', 'UserC', 1);
+INSERT INTO `reporte` (`folio`, `nivelUrg`, `aprobado`) VALUES
+(1101, '2', 1),
+(1102, '3', 1),
+(1103, '1', 0),
+(1104, '1', 0),
+(1105, '1', 0),
+(1106, '1', 0),
+(1107, '1', 0),
+(1108, '1', 0),
+(1109, '2', 1);
 
 -- --------------------------------------------------------
 
@@ -318,23 +322,23 @@ INSERT INTO `usuario` (`IDUser`, `userType`, `nombre`, `RFC`) VALUES
 --
 
 --
--- Indices de la tabla `captura`
---
-ALTER TABLE `captura`
-  ADD PRIMARY KEY (`folio`),
-  ADD KEY `FKCap` (`IDCapturador`);
-
---
 -- Indices de la tabla `conceptos`
 --
 ALTER TABLE `conceptos`
   ADD PRIMARY KEY (`clave`);
 
 --
+-- Indices de la tabla `documento`
+--
+ALTER TABLE `documento`
+  ADD PRIMARY KEY (`folio`),
+  ADD KEY `FKCap` (`IDCapturador`);
+
+--
 -- Indices de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`idCom`),
+  ADD PRIMARY KEY (`idCon`),
   ADD UNIQUE KEY `frenteobra` (`frenteobra`);
 
 --
@@ -380,8 +384,7 @@ ALTER TABLE `perdir`
 -- Indices de la tabla `reporte`
 --
 ALTER TABLE `reporte`
-  ADD PRIMARY KEY (`folio`),
-  ADD KEY `FKrep_2` (`idCapturador`);
+  ADD PRIMARY KEY (`folio`);
 
 --
 -- Indices de la tabla `residente`
@@ -414,9 +417,9 @@ ALTER TABLE `usuario`
 --
 
 --
--- Filtros para la tabla `captura`
+-- Filtros para la tabla `documento`
 --
-ALTER TABLE `captura`
+ALTER TABLE `documento`
   ADD CONSTRAINT `FKCap` FOREIGN KEY (`IDCapturador`) REFERENCES `usuario` (`IDUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -441,8 +444,8 @@ ALTER TABLE `login`
 -- Filtros para la tabla `minutas`
 --
 ALTER TABLE `minutas`
-  ADD CONSTRAINT `FKMin` FOREIGN KEY (`folio`) REFERENCES `captura` (`folio`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FKMin1` FOREIGN KEY (`idCapturador`) REFERENCES `usuario` (`IDUser`);
+  ADD CONSTRAINT `FKMin` FOREIGN KEY (`folio`) REFERENCES `documento` (`folio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKMin1` FOREIGN KEY (`idCapturador`) REFERENCES `usuario` (`IDUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `perdir`
