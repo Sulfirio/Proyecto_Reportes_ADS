@@ -40,6 +40,15 @@ Primero Descargar el proyecto de Github
 Segundo con lo anteriror se abra creado una carpeta con el nombre que escogieron e tendrea ya la ultima
 version del proyecto
 
+*********************************************************************************************************************************************************************
+ANTES DE HACER LOS SIGUINTES PASOS EN GIT BASH DEBES DE PONER EL SIGUINETE COMANDO en Git Bash
+
+cd "Nombre de carpeta a gusto"/
+
+*Si en el Git Bash aparece (master) al final de esta linea Sulfirio@DESKTOP-ON1TDK4 MINGW64 /c/xampp/htdocs/Proyecto_ADS (master)....Ustedes pueden segir los 
+siguientes pasos :3 el inicio de la linea puede variar al igual que la direccion pero lo que debe de aparecir es (master) si es asi muy bien!
+*********************************************************************************************************************************************************************
+
 
 **NOTA ANTES DE EMPEZAR A MANDAR COSAS A LO MALDITO**
 
@@ -54,9 +63,16 @@ que siguir casi todos los comando de "COMANDOS DEL DIA A DIA PARA USAR GIT" solo
     para crear una branch sigue los siguentes comandos:
 
     crear branch
-    1.- git branch nombre_de_tu_branch
+        1.- git branch nombre_de_tu_branch
+
     entrar en tu branch
-    2.- git checkout nombre_de_tu_branch
+
+        2.- git checkout nombre_de_tu_branch
+
+    Comprueba que ya estas dentro de tu branch
+    *Si puedes leer esta linea en tu git bash felicidades ya estas en tu branch!!
+
+        3.-Sulfirio@DESKTOP-ON1TDK4 MINGW64 /c/xampp/htdocs/Proyecto_ADS (nombre_de_tu_branch)
 
     *cuando entres puedes empezar a modificar/crear/eliminar elementos del proyecto, recuerda seguir los comandos de la 
     seccion "COMANDOS DEL DIA A DIA PARA USAR GIT" Y USA EL CAMANDO PULL >:v
@@ -66,15 +82,18 @@ TERCERO: Cuando termines de hacer tus tareas y quiereas mandar tu trabajo
     1.-Ya hiciste uso de los comando pull,status,add y ya mandaste tu commit (en ese orden por favor) ahora tienes que regresar a la rama 
     master para esto se usa:
 
-    git checkout master
+        git checkout master
+    
+    *Puedes comprobar que ya estas en la rama master si en git bash puedes ver la siguinte linea
+        Sulfirio@DESKTOP-ON1TDK4 MINGW64 /c/xampp/htdocs/Proyecto_ADS (master)
 
     2.-ahora necesitas volver a usar el comando pull (otra vez) listo? bien puede usar el comando:
 
-    git rebase nombre_de_tu_branch
+        git rebase nombre_de_tu_branch
 
     3.-Para madar tus modificaciones ahora si puede hacer uso de push (ESTANDO EN LA RAMA master)
 
-    git push origin master
+        git push origin master
 
 NOTA: los comandos antes mencionados y que no se vea como se usan en tan en la siguiente seccion!
 
