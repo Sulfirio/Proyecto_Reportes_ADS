@@ -2,7 +2,7 @@
 <?php
     include '../php/conexion.php';
     $datos = $conexion->query("SELECT * FROM usuario");
-    $datos2 = $conexion->query("SELECT * FROM captura");
+    $datos2 = $conexion->query("SELECT * FROM documento");
     $state = 0;
     $search = "UserA";
 ?>

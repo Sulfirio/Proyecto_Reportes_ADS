@@ -2,9 +2,9 @@
 <?php
                 include '../php/conexion.php';
                 $frentes = $conexion->query("SELECT * FROM frenteobra");
-                $usuarios = $conexion->query("SELECT * FROM usuario");
-                $supervisores = $conexion->query("SELECT * FROM supervisor");
-                $superint = $conexion->query("SELECT * FROM superintendente");
+                $usersP1 = $conexion->query("SELECT usuario.IDUser, usuario.nombre, superintendente.frenteObra FROM usuario, superintendente where usuario.IDUser = superintendente.IDUser 
+                                            UNION 
+                                            SELECT usuario.IDUser, usuario.nombre, supervisor.frenteObra FROM usuario, supervisor where usuario.IDUser = supervisor.IDUser");
                 
                 
                 
@@ -28,36 +28,15 @@
                 while($row = mysqli_fetch_row($frentes)){
                     array_push($arreglo1, $row[0]);
                     $contador += 1;
-                }
-        $contador = 0;$frOb = 0;?>
-        <?php while($contador <= 8){
-            while($user = mysqli_fetch_array($usuarios)){ 
-                        if($user['userType'] == 2){
-                            while($sup = mysqli_fetch_array($supervisores)){
-                                if($user['IDUser'] == $sup['IDUser']){
-                                    $frOb = $sup['frenteObra'];
-                                }
-                            }?>
-                            <tr>
-                            <td><?php echo $frOb;?></td>
-                            <td><?php echo $user['IDUser'];?></td>
-                            <td><?php echo "";?></td>
-                        </tr>
-                    <?php }
-                        if($user['userType'] == 3){
-                            while($sup = mysqli_fetch_array($superint)){
-                                if($user['IDUser'] == $sup['IDUser']){
-                                    $frOb = $sup['frenteObra'];
-                                }
-                            }?>
+                }?>
+        <?php 
+            while($user = mysqli_fetch_array($usersP1)){ ?>
                         <tr>
-                            <td><?php echo $frOb;?></td>
-                            <td><?php echo $user['IDUser'];?></td>
-                            <td><?php echo "";?></td>
+                        <td><?php echo $user['IDUser'];?></td>
+                        <td><?php echo $user['nombre'];?></td>
+                        <td><?php echo $user['frenteObra'];?></td>
                         </tr>
-                <?php }
-                } 
-                $contador += 1;
+                <?php
                 }?>
 </tbody>
 
