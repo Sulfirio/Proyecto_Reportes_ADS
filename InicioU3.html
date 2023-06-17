@@ -12,6 +12,7 @@
     <script src="js/funSecFrentes.js"></script>
     <script src="js/funFormulario.js"></script>
     
+    
 
     <!--REUBICAR LOS ESTILOS PLIS-->
     <style>
@@ -33,6 +34,23 @@
           padding: 8px;
           white-space: nowrap;
       }
+
+      .container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: space-around;
+      flex-direction: row;
+      }
+  
+      .box {
+        width: 150px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 5px;
+      }
       </style>
      <!--****************************--> 
   </head>
@@ -51,6 +69,7 @@
           <li><a href="#personal">Personal</a></li>
           <li><a href="#frentes">Frentes</a></li>
           <li><a href="#formulario">Formulario</a></li>
+          <li><a href="#Captura_Formulario">Captura Formulario</a></li>
         </ul>
       </nav>
     </header>
@@ -202,7 +221,22 @@
         </form>
       </section>
 <!--**************************************************************************************************-->
+
+<!--*****************************Captura Formulario**********************************************************-->
+      <section id="Captura_Formulario">
+        <div>
+          <h2>Puedes Realizar tu Reporte aqui?</h2>
+        </div>
+        <div id="container" class="container">
+        </div>
+        <button id="showSelected">Mostrar Seleccionados</button><br>
+        <textarea id="userInput0" placeholder="Escribe aquí..." rows="4" cols="50"></textarea>
+        <textarea id="userInput1" placeholder="Escribe aquí..." rows="4" cols="50"></textarea>
+      </section>
+<!--**************************************************************************************************-->
+
     </main>
+    <script src="js/funCaptura.js"></script>
     <script type="text/javascript" src="js/funPruebaMenu.js"></script>
   </body>
 </html>
