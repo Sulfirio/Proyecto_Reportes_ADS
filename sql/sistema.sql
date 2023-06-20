@@ -76,7 +76,7 @@ CREATE TABLE `estimacion` (
   `Cant_Unit` int(11) NOT NULL,
   `nvAprovacion` int(11) NOT NULL,
   `Mes` int(11) NOT NULL,
-  `Importe` int(11) NOT NULL
+  `importe` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
