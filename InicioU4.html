@@ -45,14 +45,17 @@
       <nav>
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
+          <li><a href="#frentes">Frentes</a></li>
+          <li><a href="#avances">Avances generales</a></li>
+          <li><a href="#personal">Personal</a></li>
+          <!--
           <li><a href="#catalogo">Catálogo</a></li>
           <li><a href="#captura">Captura de documentos</a></li>
           <li><a href="#consulta">Consulta</a></li>
-          <li><a href="#avances">Avances generales</a></li>
-          <li><a href="#personal">Personal</a></li>
           <li><a href="#frentes">Frentes</a></li>
           <li><a href="#formulario">Formulario</a></li>
           <li><a href="#estimaciones">Estimaciones</a></li>
+          -->
         </ul>
       </nav>
     </header>
@@ -97,11 +100,9 @@
 
 <!--***************************************avances******************************************-->
       <section id="avances">
-        
-        <h2>Avances generales</h2>
-        <p>Información general sobre el avance de las obras en curso.</p>
-
         <div class="progress-bar-container">
+          <h2>Avances conforme a la fecha de Entrega</h2>
+          <p>El avance segun la fecha estima de entrega se puede ver en la siguiente barra:</p>
 
           <div class="progress-bar">
             <div class="progress"></div>
@@ -111,28 +112,37 @@
           <form>
             <label for="start-date">Fecha de inicio:</label>
             <input type="date" id="start-date" name="start-date" value="2023-01-01"><br>
-      
+
             <label for="end-date">Fecha de finalización:</label>
             <input type="date" id="end-date" name="end-date" value="2023-12-31"><br>
-      
+
             <button type="submit">Actualizar</button>
           </form>
           
         </div>
+        <div class="progress-column-container">
+          <h2>Avance finaciero mensual</h2>
+          <p>El avance financiero de cada mes se puede ver en la siguiente grafica:</p>
+          <p>En desarollo...</p>
+        </div>
 
-        <form id="miFormularioAvances">
-          <label for="columnasAvances">Selecciona una columna:</label><br>
-          <select id="columnasAvances" name="columna"></select>
-          <br>
-          <label for="miCuadroAvances">Busqueda:</label><br>
-          <input type="text" id="miCuadroAvances" name="miCuadro"><br>
-          <button type="submit">Buscar</button>
-        </form>
-        
-        <table id="miTablaAvances">
-          <tbody id="resultadoBusquedaAvances">
-          </tbody>
-        </table>
+        <div class="formulario-avances">
+          <h2>Tituo</h2>  <!-- No se para que es este formulario pongan aqui un titulo y descripcion de lo que hace-->
+          <p>Descripción</p>
+          <form id="miFormularioAvances">
+            <label for="columnasAvances">Selecciona una columna:</label><br>
+            <select id="columnasAvances" name="columna"></select>
+            <br>
+            <label for="miCuadroAvances">Busqueda:</label><br>
+            <input type="text" id="miCuadroAvances" name="miCuadro"><br>
+            <button type="submit">Buscar</button>
+          </form>
+          
+          <table id="miTablaAvances">
+            <tbody id="resultadoBusquedaAvances">
+            </tbody>
+          </table>
+        </div>
 
       </section>
 <!--**************************************************************************************************-->
