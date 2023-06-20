@@ -73,7 +73,10 @@ CREATE TABLE `estimacion` (
   `subtotal` int(11) NOT NULL,
   `IVA` int(11) NOT NULL,
   `retencion` int(11) NOT NULL,
-  `neto` int(11) NOT NULL
+  `Cant_Unit` int(11) NOT NULL,
+  `nvAprovacion` int(11) NOT NULL,
+  `Mes` int(11) NOT NULL,
+  `Importe` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
