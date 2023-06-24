@@ -51,6 +51,11 @@
         justify-content: space-between;
         margin: 5px;
       }
+      .centered-textarea {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
       </style>
      <!--****************************--> 
   </head>
@@ -224,14 +229,39 @@
 
 <!--*****************************Captura Formulario**********************************************************-->
       <section id="Captura_Formulario">
-        <div>
+        <div class="centered-textarea">
           <h2>Puedes Realizar tu Reporte aqui?</h2>
         </div>
+        <div class="centered-textarea">
+          <select id="meses">
+              <option value="" selected disabled>Escoge el mes</option>
+              <option value="Enero">Enero</option>
+              <option value="Febrero">Febrero</option>
+              <option value="Marzo">Marzo</option>
+              <option value="Abril">Abril</option>
+              <option value="Mayo">Mayo</option>
+              <option value="Junio">Junio</option>
+              <option value="Julio">Julio</option>
+              <option value="Agosto">Agosto</option>
+              <option value="Septiembre">Septiembre</option>
+              <option value="Octubre">Octubre</option>
+              <option value="Noviembre">Noviembre</option>
+              <option value="Diciembre">Diciembre</option>
+          </select>
+      </div>
         <div id="container" class="container">
         </div>
         <button id="showSelected">Mostrar Seleccionados</button><br>
-        <textarea id="userInput0" placeholder="Escribe aquí..." rows="4" cols="50"></textarea>
-        <textarea id="userInput1" placeholder="Escribe aquí..." rows="4" cols="50"></textarea>
+        <div class="centered-textarea">
+          <p>Introduce Razon Social</p>
+          <textarea id="userInput0" placeholder="Escribe aquí..." rows="4" cols="50"></textarea>
+      </div>
+      <div class="centered-textarea">
+          <p>Justificacion</p>
+          <textarea id="userInput1" placeholder="Escribe aquí..." rows="4" cols="50"></textarea>
+      </div>
+      <button id="sendData" class="centered-textarea">Enviar</button>
+
       </section>
 <!--**************************************************************************************************-->
 
