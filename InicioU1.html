@@ -11,7 +11,7 @@
     <script src="js/funSecPersonal.js"></script>
     <script src="js/funSecFrentes.js"></script>
     <script src="js/funFormulario.js"></script>
-    
+    <script src="js/funWho.js"></script>
 
     <!--REUBICAR LOS ESTILOS PLIS-->
     <style>
@@ -38,12 +38,13 @@
   </head>
 
   <body>
-
+    
     <header>
       <!--<?php include '/php/tipoUsuario.php';?>-->
       <!-- hice un php (tipoUsuario.php) que muestra el nombre del usuario y su rol 
       pero como no funciono, lo deje comentado (el php solo si funciona)-->
-      <h1>Supervisor: UsuarioA</h1>
+
+      <h1 id="content"></h1>
       <nav>
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
@@ -58,12 +59,16 @@
       </nav>
     </header>
 
+    
+
     <main>
 
 <!--***************************************inicio******************************************-->
       <section id="inicio" class="active">
+        
         <h2>Bienvenidos a nuestra empresa</h2>
         <p>Descripción general de la empresa y sus servicios.</p>
+        
       </section>
 <!--**************************************************************************************************-->
 
@@ -206,6 +211,7 @@
       </section>
 <!--**************************************************************************************************-->
     </main>
+    
     <script type="text/javascript" src="js/funPruebaMenu.js"></script>
   </body>
 </html>
