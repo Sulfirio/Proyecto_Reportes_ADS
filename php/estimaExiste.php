@@ -1,5 +1,5 @@
 <?php
-    include '../php/conexion.php';    
+    include 'conexion.php';    
     $datos = $conexion->query("SELECT * FROM estimacion");
     $count = 1;
     $array = new SplFixedArray(100);

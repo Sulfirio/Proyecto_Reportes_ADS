@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <?php
+    session_start();
     include 'conexion.php';
     $valorSeleccionado = $_POST['valor'];
-    $datosEst = $conexion->query("SELECT * FROM estimacion WHERE idEstimacion = '{$valorSeleccionado}'");
+    $fr = $_SESSION['frenteRes'];
+    $datosEst = $conexion->query("SELECT * FROM estimacion WHERE idEstimacion = {$valorSeleccionado} and noFrenteObra = '{$fr}'");
     $suma = 0;
     ?>
 <html lang = "es">
@@ -25,10 +27,10 @@
     <th>Nivel de aprobacion</th>
     </thead>
 <tbody>
-    <?php while($user = mysqli_fetch_array($datosEst)){ 
-                $suma = $suma + $user['importe'];
+    <?php while($user = mysqli_fetch_array($datosEst)){
                 $fr = $conexion->query("SELECT nombre FROM frenteobra where idFrente = {$user['noFrenteObra']}");
-                $b = mysqli_fetch_row($fr);?>
+                $b = mysqli_fetch_row($fr);
+                $suma = $suma + $user['importe'];?>
                 <tr>
                 <td><?php echo $user['idEstimacion'];?></td>
                 <td><?php echo $user['claveConcepto'];?></td>
@@ -39,6 +41,7 @@
                 <td><?php echo $user['cantidad'];?></td>
                 <td><?php echo $user['importe'];?></td>
                 <td><?php echo $user['nvAprobacion'];?></td>
+
             </tr>
         <?php ?>
     <?php } ?>
