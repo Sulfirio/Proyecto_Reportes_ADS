@@ -26,7 +26,7 @@
                                             ?>
                                         <form action="loginP.php" method="POST">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" name="inputEmail" type="" placeholder="name@example.com" />
+                                                <input class="form-control" id="inputEmail" name="inputEmail" type="" placeholder="name@example.com o userName" />
                                                 <label for="inputEmail">Correo</label>
                                             </div>
                                             <div class="form-floating mb-3">
@@ -34,8 +34,8 @@
                                                 <label for="inputPassword">Contraseña</label>
                                             </div>
                                             <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" name="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+                                                <input class="form-check-input" id="inputRememberPassword" name="inputRememberPassword" type="checkbox" value="" <?php echo isset($_COOKIE['loginEmail']) ? 'checked' : ''; ?> />
+                                                <label class="form-check-label" for="inputRememberPassword">Recordar contraseña</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="password.html">Olvidaste la contraseña?</a>
