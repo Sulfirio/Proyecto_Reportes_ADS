@@ -92,9 +92,17 @@ CREATE TABLE `documento` (
 --
 
 INSERT INTO `documento` (`folio`, `IDCapturador`, `tipoCaptura`) VALUES
-(1101, 'UserA', 2),
-(1102, 'UserA', 1),
-(1103, 'UserD', 1);
+(1103, 'UserA', 1),
+(1104, 'UserB', 2),
+(1105, 'UserC', 3),
+(1106, 'UserD', 4),
+(1107, 'UserE', 5),
+(1108, 'UserF', 6),
+(1109, 'UserG', 7),
+(1110, 'UserH', 8),
+(1111, 'UserI', 9),
+(1112, 'UserJ', 10),
+(1113, 'UserK', 1);
 
 -- --------------------------------------------------------
 
@@ -141,9 +149,9 @@ CREATE TABLE `estimacion` (
   `subtotal` int(11) NOT NULL,
   `IVA` int(11) NOT NULL,
   `retencion` int(11) NOT NULL,
-  `Cant_Unit` int(11) NOT NULL.
-  `nvAprovacion` int(11) NOT NULL.
-  `Mes` int(11) NOT NULL.
+  `Cant_Unit` int(11) NOT NULL,
+  `nvAprovacion` int(11) NOT NULL,
+  `Mes` varchar(11) NOT NULL,
   `Importe` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -151,21 +159,22 @@ CREATE TABLE `estimacion` (
 -- Volcado de datos para la tabla `estimacion`
 --
 
-INSERT INTO `estimacion` (`idEstimacion`, `claveConcepto`, `idEstimador`, `noFrenteObra`, `razSoc`, `justificacion`, `subtotal`, `IVA`, `retencion`, `neto`) VALUES
-(1, 1101, 'UserA', 1, 'Compra concetro', '-------', 1000, 1000, 10, 10),
-(1, 1104, 'UserA', 1, 'Albañileria', '---', 1000, 1000, 10, 10),
-(2, 1101, 'UserA', 2, 'Compra concetro', '----', 1000, 1000, 10, 10),
-(2, 1103, 'UserA', 2, 'Compra cemento', '----', 1000, 1000, 10, 10),
-(3, 1102, 'UserA', 1, 'Compra Vigas de Acero', '---', 2000, 2000, 20, 20),
-(3, 1120, 'UserA', 1, 'Carpeta Asfáltica', '---', 1500, 1500, 15, 15),
-(4, 1112, 'UserA', 2, 'Azulejos', '---', 800, 800, 8, 8),
-(4, 1130, 'UserA', 2, 'Mampostería', '---', 1200, 1200, 12, 12),
-(5, 1107, 'UserA', 3, 'Ladrillos', '---', 500, 500, 5, 5),
-(5, 1116, 'UserA', 3, 'Techos de Zinc', '---', 2500, 2500, 25, 25),
-(6, 1126, 'UserA', 4, 'Carpeta Asfáltica', '---', 3000, 3000, 30, 30),
-(6, 1133, 'UserA', 4, 'Sistema de Energía Solar', '---', 5000, 5000, 50, 50),
-(7, 1105, 'UserA', 5, 'Instalación Eléctrica', '---', 1500, 1500, 15, 15),
-(7, 1134, 'UserA', 5, 'Sistema de Riego', '---', 4000, 4000, 40, 40);
+INSERT INTO `estimacion` (`idEstimacion`, `claveConcepto`, `idEstimador`, `noFrenteObra`, `razSoc`, `justificacion`, `subtotal`, `IVA`, `retencion`, `Cant_Unit`, `nvAprovacion`, `MES`, `Importe`) VALUES
+(1, 1101, 'UserA', 1, 'Compra concreto', '-------', 1000, 1000, 10, 10, 'Aprobado', 'Enero', 11000),
+(1, 1104, 'UserA', 1, 'Albañileria', '---', 1000, 1000, 10, 10, 'Aprobado', 'Enero', 10000),
+(2, 1101, 'UserA', 2, 'Compra concreto', '----', 1000, 1000, 10, 10, 'Aprobado', 'Febrero', 11000),
+(2, 1103, 'UserA', 2, 'Compra cemento', '----', 1000, 1000, 10, 10, 'Aprobado', 'Febrero', 10000),
+(3, 1102, 'UserA', 1, 'Compra Vigas de Acero', '---', 2000, 2000, 20, 20, 'Aprobado', 'Enero', 22000),
+(3, 1120, 'UserA', 1, 'Carpeta Asfáltica', '---', 1500, 1500, 15, 15, 'Aprobado', 'Enero', 16500),
+(4, 1112, 'UserA', 2, 'Azulejos', '---', 800, 800, 8, 8, 'Aprobado', 'Febrero', 8800),
+(4, 1130, 'UserA', 2, 'Mampostería', '---', 1200, 1200, 12, 12, 'Aprobado', 'Febrero', 13200),
+(5, 1107, 'UserA', 3, 'Ladrillos', '---', 500, 500, 5, 5, 'Aprobado', 'Marzo', 5500),
+(5, 1116, 'UserA', 3, 'Techos de Zinc', '---', 2500, 2500, 25, 25, 'Aprobado', 'Marzo', 27500),
+(6, 1126, 'UserA', 4, 'Carpeta Asfáltica', '---', 3000, 3000, 30, 30, 'Aprobado', 'Abril', 33000),
+(6, 1133, 'UserA', 4, 'Sistema de Energía Solar', '---', 5000, 5000, 50, 50, 'Aprobado', 'Abril', 55000),
+(7, 1105, 'UserA', 5, 'Instalación Eléctrica', '---', 1500, 1500, 15, 15, 'Aprobado', 'Mayo', 16500),
+(7, 1134, 'UserA', 5, 'Sistema de Riego', '---', 4000, 4000, 40, 40, 'Aprobado', 'Mayo', 44000);
+
 
 -- --------------------------------------------------------
 
@@ -192,25 +201,25 @@ INSERT INTO `fotografia` (`clave`, `folioReporte`) VALUES
 --
 
 CREATE TABLE `frenteobra` (
-  `idFrente` int(11) NOT NULL
+  `idFrente` int(11) NOT NULL,
+  `NombreObra` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `frenteobra`
 --
 
-INSERT INTO `frenteobra` (`idFrente`) VALUES
-(1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7),
-(8),
-(9),
-(10);
-
+INSERT INTO `frenteobra` (`idFrente`, `NombreObra`) VALUES
+(1, 'Obra1'),
+(2, 'Obra2'),
+(3, 'Obra3'),
+(4, 'Obra4'),
+(5, 'Obra5'),
+(6, 'Obra6'),
+(7, 'Obra7'),
+(8, 'Obra8'),
+(9, 'Obra9'),
+(10, 'Obra10');
 -- --------------------------------------------------------
 
 --
@@ -308,7 +317,8 @@ INSERT INTO `perdir` (`IDUser`) VALUES
 CREATE TABLE `reporte` (
   `folio` int(11) NOT NULL,
   `nivelUrg` char(2) NOT NULL,
-  `aprobado` tinyint(1) NOT NULL
+  `aprobado` tinyint(1) NOT NULL,
+  `frenteObra`  int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -375,16 +385,15 @@ INSERT INTO `residente` (`IDUser`) VALUES
 --
 
 CREATE TABLE `superintendente` (
-  `IDUser` varchar(255) NOT NULL,
-  `frenteObra` int(11) NOT NULL
+  `IDUser` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `superintendente`
 --
 
-INSERT INTO `superintendente` (`IDUser`, `frenteObra`) VALUES
-('UserC', 4);
+INSERT INTO `superintendente` (`IDUser`) VALUES
+('UserC');
 
 -- --------------------------------------------------------
 
@@ -401,7 +410,8 @@ CREATE TABLE `supervisor` (
 -- Volcado de datos para la tabla `supervisor`
 --
 
-INSERT INTO `supervisor` (`IDUser`, `frenteObra`) VALUES ('UserB', 5);
+INSERT INTO `supervisor` (`IDUser`, `frenteObra`) VALUES 
+('UserB', 5);
 
 -- --------------------------------------------------------
 
@@ -525,8 +535,7 @@ ALTER TABLE `residente`
 -- Indices de la tabla `superintendente`
 --
 ALTER TABLE `superintendente`
-  ADD PRIMARY KEY (`IDUser`),
-  ADD KEY `FK2_SI` (`frenteObra`);
+  ADD PRIMARY KEY (`IDUser`);
 
 --
 -- Indices de la tabla `supervisor`
@@ -592,7 +601,6 @@ ALTER TABLE `residente`
 -- Filtros para la tabla `superintendente`
 --
 ALTER TABLE `superintendente`
-  ADD CONSTRAINT `FK2_SI` FOREIGN KEY (`frenteObra`) REFERENCES `frenteobra` (`idFrente`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FKSupIn` FOREIGN KEY (`IDUser`) REFERENCES `usuario` (`IDUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
