@@ -41,9 +41,6 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Registro</a></div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
