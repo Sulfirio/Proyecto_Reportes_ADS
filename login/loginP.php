@@ -40,6 +40,8 @@ if ($row = mysqli_fetch_assoc($result)) {
             break;
     }
 } else {
-    header("Location: login.php");
+    // Mostrar mensaje de error y redirigir al formulario de inicio de sesión
+    header("Location: login.php?error=1");
+    exit();
 }
 ?>

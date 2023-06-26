@@ -19,6 +19,11 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Iniciar sesión</h3></div>
                                     <div class="card-body">
+                                    <?php
+                                            if (isset($_GET['error']) && $_GET['error'] == 1) {
+                                                echo '<div class="alert alert-danger">Usuario o contraseña incorrectos. Por favor, intenta nuevamente.</div>';
+                                            }
+                                            ?>
                                         <form action="loginP.php" method="POST">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" name="inputEmail" type="" placeholder="name@example.com" />
