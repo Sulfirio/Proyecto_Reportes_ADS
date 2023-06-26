@@ -33,14 +33,14 @@
                                                 <input class="form-control" id="inputPassword" name="inputPassword" type="password" placeholder="Password" />
                                                 <label for="inputPassword">Contraseña</label>
                                             </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            </div>
                                             <div class="form-check mb-3">
                                                 <input class="form-check-input" id="inputRememberPassword" name="inputRememberPassword" type="checkbox" value="" <?php echo isset($_COOKIE['loginEmail']) ? 'checked' : ''; ?> />
                                                 <label class="form-check-label" for="inputRememberPassword">Recordar contraseña</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Olvidaste la contraseña?</a>
                                             </div>
-                                            <div>
                                                 <div class="d-flex align-items-center justify-content-between mt-3 mb-0"></div>
                                                 <button type="submit" id="btnlog" class="btn btn-primary">Entrar</a>
                                             </div>
@@ -53,6 +53,5 @@
                 </main>
             </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/login.js"></script>
     </body>
 </html>
