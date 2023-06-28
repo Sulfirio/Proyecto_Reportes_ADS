@@ -1,3 +1,7 @@
+<?php
+include('php/inicioUser.php');
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,7 +15,6 @@
     <script src="js/funSecPersonal.js"></script>
     <script src="js/funSecFrentes.js"></script>
     <script src="js/funFormulario.js"></script>
-    <script src="js/funListEstimacion.js"></script>
     
 
     <!--REUBICAR LOS ESTILOS PLIS-->
@@ -35,27 +38,26 @@
           white-space: nowrap;
       }
       </style>
-     <!--****************************--> 
+    <!--****************************--> 
   </head>
 
   <body>
 
     <header>
-      <h1>Personal directivo: UsuarioD</h1>
+      <h1>Supervisor: <?php echo $userID; ?></h1>
       <nav>
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
-          <li><a href="#frentes">Frentes</a></li>
+          <li><a href="#reportes">Reportes</a></li>
           <li><a href="#avances">Avances generales</a></li>
           <li><a href="#personal">Personal</a></li>
-          <!--
-          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#estimaciones">Estimaciones</a></li>
+          <li><a href="#catalogo">Catalogo</a></li>
+          <!-- <li><a href="#frentes">Frentes</a></li>
           <li><a href="#captura">Captura de documentos</a></li>
           <li><a href="#consulta">Consulta</a></li>
-          <li><a href="#frentes">Frentes</a></li>
-          <li><a href="#formulario">Formulario</a></li>
-          <li><a href="#estimaciones">Estimaciones</a></li>
-          -->
+          <li><a href="#formulario">Formulario</a></li> -->
+          
         </ul>
       </nav>
     </header>
@@ -70,14 +72,49 @@
 <!--**************************************************************************************************-->
 
 
-<!--***************************************catalogo******************************************-->
-      <section id="catalogo">
-        <div class="catalogo_content">
-          <h2>Catálogo de conceptos</h2>
-          <p>Lista de los conceptos a utilizar en la obra.</p>
+<!--***************************************reportes******************************************-->
+      <section id="reportes">
+        <div class="reportes_content">
+          <h2>Reportes</h2>
+          <p>
+            Dentro de los reportes que el supervisor puede ver/subir/editar se encuentran:
+            <ul>
+              <li>Reporte de Actividades Realizadas</li>
+              <li>Reporte global</li>
+              <li>Incidencias</li>
+            </ul>
+          </p>
         </div>
 
-        <div class="catalogo_data_container"></div>
+        <div class="reportes_data_container"></div>
+        <div id="personal_content_form">
+          <h2>Formulario para mandar reportes</h2>
+          <p>Puedes enviar tu reporte aqui</p>
+
+          <form id="form_reporte">
+            <label for="idCapturador">Id de Capturador</label><br>
+            <input type="text" id="idCapturador" name="capturador"><br>
+            
+            <label for="numero">Nivel de Urgercia</label><br>
+            <select id="numero" name="numero">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select><br>
+    
+            <label>¿El Reporte esta aprobado?</label><br>
+            <input type="radio" id="1" name="aprobado" value="SI">
+            <label for="1">SI</label><br>
+            <input type="radio" id="3" name="aprobado" value="NO">
+            <label for="3">NO</label><br><br>
+    
+            <input type="submit" value="Enviar">
+          </form>
+        </div>
+        <div class="reportes_ver">
+          <h2>Aqui puedes ver los reportes</h2>
+          <p>En desarrollo...</p>
+        </div>
       </section>
 <!--**************************************************************************************************-->
 
@@ -112,10 +149,10 @@
           <form>
             <label for="start-date">Fecha de inicio:</label>
             <input type="date" id="start-date" name="start-date" value="2023-01-01"><br>
-
+      
             <label for="end-date">Fecha de finalización:</label>
             <input type="date" id="end-date" name="end-date" value="2023-12-31"><br>
-
+      
             <button type="submit">Actualizar</button>
           </form>
           
@@ -183,10 +220,6 @@
 
         <div class="frentes_data_container"></div>
       </section>
-<!--**************************************************************************************************-->
-
-
-<!--*****************************formulario**********************************************************-->
       <section id ="formulario">
         <div id="personal_content_form">
           <h2>Formulario para mandar reportes</h2>
@@ -215,13 +248,29 @@
       </section>
 <!--**************************************************************************************************-->
 
-<!--*****************************Estimaciones**********************************************************-->
-      <section id="estimaciones">
-        <select id="estimacionNum" name="nuM">
-        </select>
-        <div id="tablaResultados"></div>
-      </section>
+<!--***************************************estimaciones******************************************-->
+<section id="estimaciones">
+  <div class="estimaciones_content">
+    <h2>Estimaciones</h2>
+    <p>El supervisor tiene la tarea de validar la estimaciones, estas son las estimaciones por validar:</p>
+    <p>En desarrollo..</p>
+  </div>
+
+  <div class="estimaciones_data_container"></div>
+</section>
 <!--**************************************************************************************************-->
+
+<!--***************************************catalogo******************************************-->
+<section id="catalogo">
+  <div class="catalogo_content">
+    <h2>Catálogo de obras</h2>
+    <p>Lista del catálogo obras disponibles, con información detallada.</p>
+  </div>
+
+  <div class="catalogo_data_container"></div>
+</section>
+<!--**************************************************************************************************-->
+
     </main>
     <script type="text/javascript" src="js/funPruebaMenu.js"></script>
   </body>
