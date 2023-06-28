@@ -1,3 +1,6 @@
+<?php
+include('php/inicioUser.php');
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +14,7 @@
     <script src="js/funSecPersonal.js"></script>
     <script src="js/funSecFrentes.js"></script>
     <script src="js/funFormulario.js"></script>
+    <script src="js/funListEstimacion.js"></script>
     
 
     <!--REUBICAR LOS ESTILOS PLIS-->
@@ -40,20 +44,21 @@
   <body>
 
     <header>
-      <h1>Superintendente: UsuarioB</h1>
+      <h1>Personal directivo: <?php echo $userID; ?></h1>
       <nav>
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
-          <li><a href="#reportes">Reportes</a></li>
+          <li><a href="#frentes">Frentes</a></li>
           <li><a href="#avances">Avances generales</a></li>
           <li><a href="#personal">Personal</a></li>
-          <li><a href="#estimaciones">Estimaciones</a></li>
-          <li><a href="#catalogo">Catalogo</a></li>
-          <!-- <li><a href="#frentes">Frentes</a></li>
+          <!--
+          <li><a href="#catalogo">Catálogo</a></li>
           <li><a href="#captura">Captura de documentos</a></li>
           <li><a href="#consulta">Consulta</a></li>
-          <li><a href="#formulario">Formulario</a></li> -->
-          
+          <li><a href="#frentes">Frentes</a></li>
+          <li><a href="#formulario">Formulario</a></li>
+          <li><a href="#estimaciones">Estimaciones</a></li>
+          -->
         </ul>
       </nav>
     </header>
@@ -67,57 +72,12 @@
       </section>
 <!--**************************************************************************************************-->
 
-<!--***************************************reportes******************************************-->
-      <section id="reportes">
-        <div class="reportes_content">
-          <h2>Reportes</h2>
-          <p>
-            Dentro de los reportes que el supervisor puede ver/subir/editar se encuentran:
-            <ul>
-              <li>Reporte de Actividades Realizadas</li>
-              <li>Reporte global</li>
-              <li>Incidencias</li>
-            </ul>
-          </p>
-        </div>
-
-        <div class="reportes_data_container"></div>
-        <div id="personal_content_form">
-          <h2>Formulario para mandar reportes</h2>
-          <p>Puedes enviar tu reporte aqui</p>
-
-          <form id="form_reporte">
-            <label for="idCapturador">Id de Capturador</label><br>
-            <input type="text" id="idCapturador" name="capturador"><br>
-            
-            <label for="numero">Nivel de Urgercia</label><br>
-            <select id="numero" name="numero">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select><br>
-
-            <label>¿El Reporte esta aprobado?</label><br>
-            <input type="radio" id="1" name="aprobado" value="SI">
-            <label for="1">SI</label><br>
-            <input type="radio" id="3" name="aprobado" value="NO">
-            <label for="3">NO</label><br><br>
-
-            <input type="submit" value="Enviar">
-          </form>
-        </div>
-        <div class="reportes_ver">
-          <h2>Aqui puedes ver los reportes</h2>
-          <p>En desarrollo...</p>
-        </div>
-      </section>
-<!--**************************************************************************************************-->
 
 <!--***************************************catalogo******************************************-->
       <section id="catalogo">
         <div class="catalogo_content">
-          <h2>Catálogo de obras</h2>
-          <p>Lista de las obras disponibles, con información detallada y fotos.</p>
+          <h2>Catálogo de conceptos</h2>
+          <p>Lista de los conceptos a utilizar en la obra.</p>
         </div>
 
         <div class="catalogo_data_container"></div>
@@ -132,17 +92,6 @@
       </section>
 <!--**************************************************************************************************-->
 
-<!--***************************************estimaciones******************************************-->
-      <section id="estimaciones">
-        <div class="estimaciones_content">
-          <h2>Estimaciones</h2>
-          <p>El superintendente tiene la tarea de hacer la estimaciones:</p>
-          <p>En desarrollo..</p>
-        </div>
-
-        <div class="estimaciones_data_container"></div>
-      </section>
-<!--**************************************************************************************************-->
 
 <!--***************************************consulta******************************************-->
       <section id="consulta">
@@ -201,13 +150,14 @@
       </section>
 <!--**************************************************************************************************-->
 
+
 <!--***************************************personal******************************************-->
       <section id="personal">
         <div class="personal_content">
           <h2>Personal de las obras</h2>
           <p>Lista del personal correspondiente a las obras disponibles.</p>
         </div>
-
+  
         <div class="personal_data_container"></div>
 
         <form id="miFormulario">
@@ -224,6 +174,55 @@
           </tbody>
         </table>
 
+      </section>
+<!--**************************************************************************************************-->
+
+<!--***************************************frentes******************************************-->
+      <section id="frentes">
+        <div class="frentes_content">
+          <h2>Frentes de Obra</h2>
+          <p>Consulta los frentes de obra en los que trabajas actualmente.</p>
+        </div>
+
+        <div class="frentes_data_container"></div>
+      </section>
+<!--**************************************************************************************************-->
+
+
+<!--*****************************formulario**********************************************************-->
+      <section id ="formulario">
+        <div id="personal_content_form">
+          <h2>Formulario para mandar reportes</h2>
+          <p>Puedes inviar tu reporte aqui</p>
+        </div>
+
+        <form id="form_reporte">
+          <label for="idCapturador">Id de Capturador</label><br>
+          <input type="text" id="idCapturador" name="capturador"><br>
+          
+          <label for="numero">Nivel de Urgercia</label><br>
+          <select id="numero" name="numero">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </select><br>
+  
+          <label>¿El Reporte esta aprobado?</label><br>
+          <input type="radio" id="1" name="aprobado" value="SI">
+          <label for="1">SI</label><br>
+          <input type="radio" id="3" name="aprobado" value="NO">
+          <label for="3">NO</label><br><br>
+  
+          <input type="submit" value="Enviar">
+        </form>
+      </section>
+<!--**************************************************************************************************-->
+
+<!--*****************************Estimaciones**********************************************************-->
+      <section id="estimaciones">
+        <select id="estimacionNum" name="nuM">
+        </select>
+        <div id="tablaResultados"></div>
       </section>
 <!--**************************************************************************************************-->
     </main>
