@@ -13,6 +13,7 @@
     <script src="js/funFormulario.js"></script>
     <script src="js/funWho.js"></script>
     <script src="js/funListEstimacionRes.js"></script>
+    <script src="js/funConceptos.js"></script>
     
 
     <!--REUBICAR LOS ESTILOS PLIS-->
@@ -75,9 +76,10 @@
           <li><a href="#personal">Personal</a></li>
           <li><a href="#frentes">Frentes</a></li>
           <li><a href="#formulario">Formulario</a></li>
+          <li><a href="#estimaciones2">Estimaciones_B</a></li>
+          <li><a href="#Captura_Formulario">Formulario Estimaciones</a></li>
           <li><a href="#estimaciones">Estimaciones</a></li>
-          <li><a href="#Captura_Formulario">Captura Formulario</a></li>
-          <li><a href="#estimaciones">Estimaciones</a></li>
+          <li><a href="#Subir_concepto">Subir concepto</a></li>
         </ul>
       </nav>
     </header>
@@ -231,7 +233,7 @@
 <!--**************************************************************************************************-->
 
 <!--***************************************estimaciones******************************************-->
-<section id="estimaciones">
+<section id="estimaciones2">
   <div class="estimaciones_content">
     <h2>Estimaciones</h2>
     <p>El Residente tiene la tarea de hacer la validación final de las estimaciones:</p>
@@ -242,15 +244,10 @@
 </section>
 <!--**************************************************************************************************-->
 
-<!--*****************************Captura Formulario**********************************************************-->
+<!--*****************************Formulario_Estimaciones**********************************************************-->
       <section id="Captura_Formulario">
-<<<<<<< HEAD
         <div class="centered-textarea">
-          <h2>Puedes Realizar tu Reporte aqui?</h2>
-=======
-        <div>
-          <h2>Puedes Realizar tu Reporte aqui</h2>
->>>>>>> bdb4143d0727f440c6ee4040272f8f5d7d58f7d9
+          <h2>Puedes Realizar tu Estimacion aqui</h2>
         </div>
         <div class="centered-textarea">
           <select id="meses">
@@ -292,6 +289,30 @@
   <div id="tablaResultados"></div>
 </section>
 <!--**************************************************************************************************-->
+
+<!--*****************************Subir_concepto**********************************************************-->
+<section id="Subir_concepto">
+  <div>
+    <h2>Puede introducir aqui un concepto</h2>
+  </div>
+  <form id="myForm" method="post">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre"><br>
+    
+    <label for="descripcion">Descripción:</label><br>
+    <textarea id="descripcion" name="descripcion"></textarea><br>
+  
+    <label for="unidad">Unidad:</label><br>
+    <input type="number" id="unidad" name="unidad" pattern="[0-9]*"><br>
+  
+    <label for="precio">Precio:</label><br>
+    <input type="number" id="precio" name="precio" pattern="[0-9]*"><br>
+  
+    <button type="button" id="submitButton">Submit</button>	
+  </form>
+</section>
+<!--**************************************************************************************************-->
+
 
     </main>
     <script src="js/funCaptura.js"></script>

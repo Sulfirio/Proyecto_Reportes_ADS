@@ -1,3 +1,4 @@
+<!--PESTAÑA DE SUPERINTENDENTE-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,7 +14,7 @@
     <script src="js/funFormulario.js"></script>
     <script src="js/funListEstimacion.js"></script>
     <script src="js/funWho.js"></script>
-
+    <script src="js/funAprobarInten.js"></script>
     <!--REUBICAR LOS ESTILOS PLIS-->
     <style>
       #miTabla {
@@ -52,19 +53,14 @@
           <li><a href="#reportes">Reportes</a></li>
           <li><a href="#avances">Avances generales</a></li>
           <li><a href="#personal">Personal</a></li>
-<<<<<<< HEAD
-          <li><a href="#frentes">Frentes</a></li>
-          <li><a href="#formulario">Formulario</a></li>
-          <li><a href="#estimaciones">Estimaciones</a></li>
-=======
           <li><a href="#estimaciones">Estimaciones</a></li>
           <li><a href="#catalogo">Catalogo</a></li>
+          <li><a href="#Aprobar_Estimacion">Aprobacion de Estimacion</a></li>
           <!-- <li><a href="#frentes">Frentes</a></li>
           <li><a href="#captura">Captura de documentos</a></li>
           <li><a href="#consulta">Consulta</a></li>
           <li><a href="#formulario">Formulario</a></li> -->
           
->>>>>>> bdb4143d0727f440c6ee4040272f8f5d7d58f7d9
         </ul>
       </nav>
     </header>
@@ -259,15 +255,6 @@
       </section>
 <!--**************************************************************************************************-->
 
-<<<<<<< HEAD
-<!--*****************************Estimaciones**********************************************************-->
-<section id="estimaciones">
-  <select id="estimacionNum" name="nuM">
-  </select>
-  <div id="tablaResultados"></div>
-</section>
-<!--**************************************************************************************************-->
-=======
 <!--***************************************estimaciones******************************************-->
 <section id="estimaciones">
   <div class="estimaciones_content">
@@ -275,7 +262,9 @@
     <p>El supervisor tiene la tarea de validar la estimaciones, estas son las estimaciones por validar:</p>
     <p>En desarrollo..</p>
   </div>
-
+  <select id="estimacionNum" name="nuM">
+  </select>
+  <div id="tablaResultados"></div>
   <div class="estimaciones_data_container"></div>
 </section>
 <!--**************************************************************************************************-->
@@ -291,7 +280,16 @@
 </section>
 <!--**************************************************************************************************-->
 
->>>>>>> bdb4143d0727f440c6ee4040272f8f5d7d58f7d9
+<!--***************************************Aprobar_Estimacion******************************************-->
+<section id="Aprobar_Estimacion">
+  <select id="aproEst" name="nuM">
+  </select>
+  <div id="tablaResultadosApro"></div>
+  <button id="btnAceptar" style="display:none">Aceptar</button>
+  <button id="btnRechazar" style="display:none">Rechazar</button>
+</section>
+<!--**************************************************************************************************-->
+
     </main>
     
     <script type="text/javascript" src="js/funPruebaMenu.js"></script>

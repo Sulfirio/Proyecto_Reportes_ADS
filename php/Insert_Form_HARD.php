@@ -1,5 +1,8 @@
 <?php
+session_start();
 include 'conexion.php';
+$var1 = $_SESSION['userID'];
+$var2 = $_SESSION['frenteRes'];
 if(isset($_POST['keys']) && isset($_POST['values']) && isset($_POST['razonSocial']) && isset($_POST['justificacion'])) {
     $keys = json_decode($_POST['keys']);
     $values = json_decode($_POST['values']);
@@ -24,7 +27,7 @@ if(isset($_POST['keys']) && isset($_POST['values']) && isset($_POST['razonSocial
         $sql = "INSERT INTO estimacion (idEstimacion, claveConcepto,
                             idEstimador, noFrenteObra, razSoc,
                             justificacion, mes, cantidad, importe,nvAprobacion) 
-                            VALUES ($num,$keys[$i],'UsuarioA',1,'$razonSocial', '$justificacion','$mes',
+                            VALUES ($num,$keys[$i],'$var1',$var2,'$razonSocial', '$justificacion','$mes',
                             $values[$i],$importe,1)";
 
         $exito = mysqli_query($conexion, $sql);
