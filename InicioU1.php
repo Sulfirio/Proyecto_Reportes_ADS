@@ -1,3 +1,7 @@
+<?php
+include('php/inicioUser.php');
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -40,7 +44,10 @@
   <body>
 
     <header>
-      <h1>Superintendente: UsuarioB</h1>
+      <!--<?php include '/php/tipoUsuario.php';?>-->
+      <!-- hice un php (tipoUsuario.php) que muestra el nombre del usuario y su rol 
+      pero como no funciono, lo deje comentado (el php solo si funciona)-->
+      <h1>Supervisor: <?php echo $userID; ?></h1>
       <nav>
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
@@ -66,6 +73,7 @@
         <p>Descripción general de la empresa y sus servicios.</p>
       </section>
 <!--**************************************************************************************************-->
+
 
 <!--***************************************reportes******************************************-->
       <section id="reportes">
@@ -96,13 +104,13 @@
                 <option value="2">2</option>
                 <option value="3">3</option>
             </select><br>
-
+    
             <label>¿El Reporte esta aprobado?</label><br>
             <input type="radio" id="1" name="aprobado" value="SI">
             <label for="1">SI</label><br>
             <input type="radio" id="3" name="aprobado" value="NO">
             <label for="3">NO</label><br><br>
-
+    
             <input type="submit" value="Enviar">
           </form>
         </div>
@@ -110,17 +118,6 @@
           <h2>Aqui puedes ver los reportes</h2>
           <p>En desarrollo...</p>
         </div>
-      </section>
-<!--**************************************************************************************************-->
-
-<!--***************************************catalogo******************************************-->
-      <section id="catalogo">
-        <div class="catalogo_content">
-          <h2>Catálogo de obras</h2>
-          <p>Lista de las obras disponibles, con información detallada y fotos.</p>
-        </div>
-
-        <div class="catalogo_data_container"></div>
       </section>
 <!--**************************************************************************************************-->
 
@@ -132,17 +129,6 @@
       </section>
 <!--**************************************************************************************************-->
 
-<!--***************************************estimaciones******************************************-->
-      <section id="estimaciones">
-        <div class="estimaciones_content">
-          <h2>Estimaciones</h2>
-          <p>El superintendente tiene la tarea de hacer la estimaciones:</p>
-          <p>En desarrollo..</p>
-        </div>
-
-        <div class="estimaciones_data_container"></div>
-      </section>
-<!--**************************************************************************************************-->
 
 <!--***************************************consulta******************************************-->
       <section id="consulta">
@@ -166,10 +152,10 @@
           <form>
             <label for="start-date">Fecha de inicio:</label>
             <input type="date" id="start-date" name="start-date" value="2023-01-01"><br>
-
+      
             <label for="end-date">Fecha de finalización:</label>
             <input type="date" id="end-date" name="end-date" value="2023-12-31"><br>
-
+      
             <button type="submit">Actualizar</button>
           </form>
           
@@ -201,13 +187,14 @@
       </section>
 <!--**************************************************************************************************-->
 
+
 <!--***************************************personal******************************************-->
       <section id="personal">
         <div class="personal_content">
           <h2>Personal de las obras</h2>
           <p>Lista del personal correspondiente a las obras disponibles.</p>
         </div>
-
+  
         <div class="personal_data_container"></div>
 
         <form id="miFormulario">
@@ -226,6 +213,67 @@
 
       </section>
 <!--**************************************************************************************************-->
+
+<!--***************************************frentes******************************************-->
+      <section id="frentes">
+        <div class="frentes_content">
+          <h2>Frentes de Obra</h2>
+          <p>Consulta los frentes de obra en los que trabajas actualmente.</p>
+        </div>
+
+        <div class="frentes_data_container"></div>
+      </section>
+      <section id ="formulario">
+        <div id="personal_content_form">
+          <h2>Formulario para mandar reportes</h2>
+          <p>Puedes inviar tu reporte aqui</p>
+        </div>
+
+        <form id="form_reporte">
+          <label for="idCapturador">Id de Capturador</label><br>
+          <input type="text" id="idCapturador" name="capturador"><br>
+          
+          <label for="numero">Nivel de Urgercia</label><br>
+          <select id="numero" name="numero">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </select><br>
+  
+          <label>¿El Reporte esta aprobado?</label><br>
+          <input type="radio" id="1" name="aprobado" value="SI">
+          <label for="1">SI</label><br>
+          <input type="radio" id="3" name="aprobado" value="NO">
+          <label for="3">NO</label><br><br>
+  
+          <input type="submit" value="Enviar">
+        </form>
+      </section>
+<!--**************************************************************************************************-->
+
+<!--***************************************estimaciones******************************************-->
+<section id="estimaciones">
+  <div class="estimaciones_content">
+    <h2>Estimaciones</h2>
+    <p>El supervisor tiene la tarea de validar la estimaciones, estas son las estimaciones por validar:</p>
+    <p>En desarrollo..</p>
+  </div>
+
+  <div class="estimaciones_data_container"></div>
+</section>
+<!--**************************************************************************************************-->
+
+<!--***************************************catalogo******************************************-->
+<section id="catalogo">
+  <div class="catalogo_content">
+    <h2>Catálogo de obras</h2>
+    <p>Lista del catálogo obras disponibles, con información detallada.</p>
+  </div>
+
+  <div class="catalogo_data_container"></div>
+</section>
+<!--**************************************************************************************************-->
+
     </main>
     <script type="text/javascript" src="js/funPruebaMenu.js"></script>
   </body>
