@@ -1,7 +1,3 @@
-<?php
-include('php/inicioUser.php');
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -45,11 +41,7 @@ include('php/inicioUser.php');
   <body>
 
     <header>
-<<<<<<< HEAD:InicioU4.html
       <h1 id="content"></h1>
-=======
-      <h1>Personal directivo: <?php echo $userID; ?></h1>
->>>>>>> 013e2fd15188cbdfd063daac8499c4f150af5791:InicioU4.php
       <nav>
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>

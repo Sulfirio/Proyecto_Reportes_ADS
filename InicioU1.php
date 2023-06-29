@@ -1,11 +1,4 @@
-<<<<<<< HEAD:InicioU1.html
 <!--PESTAÑA DE SUPERINTENDENTE-->
-=======
-<?php
-include('php/inicioUser.php');
-?>
-
->>>>>>> 013e2fd15188cbdfd063daac8499c4f150af5791:InicioU1.php
 <!DOCTYPE html>
 <html>
   <head>
@@ -52,12 +45,8 @@ include('php/inicioUser.php');
       <!--<?php include '/php/tipoUsuario.php';?>-->
       <!-- hice un php (tipoUsuario.php) que muestra el nombre del usuario y su rol 
       pero como no funciono, lo deje comentado (el php solo si funciona)-->
-<<<<<<< HEAD:InicioU1.html
 
       <h1 id="content"></h1>
-=======
-      <h1>Supervisor: <?php echo $userID; ?></h1>
->>>>>>> 013e2fd15188cbdfd063daac8499c4f150af5791:InicioU1.php
       <nav>
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
