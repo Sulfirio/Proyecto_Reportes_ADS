@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gráfica de Barras</title>
+    <!-- Incluir la biblioteca Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="chart"></canvas>
+
+    <script>
+        // Datos de ejemplo (puedes reemplazarlos con tus propios datos)
+        var meses = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        var gastos = [1000.50, 1500.75, 800.25, 1200.00, 900.50, 1100.25, 1300.75, 950.50, 1050.25, 1150.75, 1400.50, 900.25];
+
+        // Obtener el elemento canvas
+        var canvas = document.getElementById('chart');
+
+        // Crear la gráfica de barras
+        var ctx = canvas.getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: meses,
+                datasets: [{
+                    label: 'Gastos Mensuales',
+                    data: gastos,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)', // Color de las barras
+                    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde de las barras
+                    borderWidth: 1 // Ancho del borde de las barras
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Meses'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Gasto'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
