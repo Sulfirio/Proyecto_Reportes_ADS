@@ -8,6 +8,7 @@
     <title>princial Usuario</title>
     <link rel="stylesheet" type="text/css" href="css/stPruebaMenu.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/funSecCatalogo.js"></script>
     <script src="js/funSecPersonal.js"></script>
     <script src="js/funSecFrentes.js"></script>
@@ -15,6 +16,8 @@
     <script src="js/funListEstimacion.js"></script>
     <script src="js/funWho.js"></script>
     <script src="js/funAprobarInten.js"></script>
+    
+    
     <!--REUBICAR LOS ESTILOS PLIS-->
     <style>
       #miTabla {
@@ -35,6 +38,11 @@
           padding: 8px;
           white-space: nowrap;
       }
+      .centered-textarea {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       </style>
      <!--****************************--> 
   </head>
@@ -52,6 +60,7 @@
           <li><a href="#inicio" class="active">Inicio</a></li>
           <li><a href="#reportes">Reportes</a></li>
           <li><a href="#avances">Avances generales</a></li>
+          <li><a href="#grafica">Grafica de Gastos</a></li>
           <li><a href="#personal">Personal</a></li>
           <li><a href="#estimaciones">Estimaciones</a></li>
           <li><a href="#catalogo">Catalogo</a></li>
@@ -191,6 +200,15 @@
       </section>
 <!--**************************************************************************************************-->
 
+<!--***************************************Aprobar_Estimacion******************************************-->
+<section id="grafica">
+  <div>
+    <h2 class="centered-textarea">Grafica de gastos por mes</h2>
+  </div>
+  <canvas id="chart"></canvas>
+</section>
+<!--**************************************************************************************************-->
+
 
 <!--***************************************personal******************************************-->
       <section id="personal">
@@ -291,7 +309,7 @@
 <!--**************************************************************************************************-->
 
     </main>
-    
+    <script src="js/funGrafica.js"></script>
     <script type="text/javascript" src="js/funPruebaMenu.js"></script>
   </body>
 </html>
