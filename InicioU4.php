@@ -1,3 +1,7 @@
+<?php
+include('php/inicioUser.php');
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,10 +15,8 @@
     <script src="js/funSecPersonal.js"></script>
     <script src="js/funSecFrentes.js"></script>
     <script src="js/funFormulario.js"></script>
+    <script src="js/funListEstimacion.js"></script>
     <script src="js/funWho.js"></script>
-    <script src="js/funListEstimacionRes.js"></script>
-    <script src="js/funConceptos.js"></script>
-    
 
     <!--REUBICAR LOS ESTILOS PLIS-->
     <style>
@@ -36,28 +38,6 @@
           padding: 8px;
           white-space: nowrap;
       }
-
-      .container {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      justify-content: space-around;
-      flex-direction: row;
-      }
-  
-      .box {
-        width: 150px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 5px;
-      }
-      .centered-textarea {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
       </style>
      <!--****************************--> 
   </head>
@@ -65,21 +45,25 @@
   <body>
 
     <header>
+<<<<<<< HEAD:InicioU4.html
       <h1 id="content"></h1>
+=======
+      <h1>Personal directivo: <?php echo $userID; ?></h1>
+>>>>>>> 013e2fd15188cbdfd063daac8499c4f150af5791:InicioU4.php
       <nav>
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
+          <li><a href="#frentes">Frentes</a></li>
+          <li><a href="#avances">Avances generales</a></li>
+          <li><a href="#personal">Personal</a></li>
+          <!--
           <li><a href="#catalogo">Catálogo</a></li>
           <li><a href="#captura">Captura de documentos</a></li>
           <li><a href="#consulta">Consulta</a></li>
-          <li><a href="#avances">Avances generales</a></li>
-          <li><a href="#personal">Personal</a></li>
           <li><a href="#frentes">Frentes</a></li>
           <li><a href="#formulario">Formulario</a></li>
-          <li><a href="#estimaciones2">Estimaciones_B</a></li>
-          <li><a href="#Captura_Formulario">Formulario Estimaciones</a></li>
           <li><a href="#estimaciones">Estimaciones</a></li>
-          <li><a href="#Subir_concepto">Subir concepto</a></li>
+          -->
         </ul>
       </nav>
     </header>
@@ -97,8 +81,8 @@
 <!--***************************************catalogo******************************************-->
       <section id="catalogo">
         <div class="catalogo_content">
-          <h2>Catálogo de obras</h2>
-          <p>Lista de las obras disponibles, con información detallada y fotos.</p>
+          <h2>Catálogo de conceptos</h2>
+          <p>Lista de los conceptos a utilizar en la obra.</p>
         </div>
 
         <div class="catalogo_data_container"></div>
@@ -124,11 +108,9 @@
 
 <!--***************************************avances******************************************-->
       <section id="avances">
-        
-        <h2>Avances generales</h2>
-        <p>Información general sobre el avance de las obras en curso.</p>
-
         <div class="progress-bar-container">
+          <h2>Avances conforme a la fecha de Entrega</h2>
+          <p>El avance segun la fecha estima de entrega se puede ver en la siguiente barra:</p>
 
           <div class="progress-bar">
             <div class="progress"></div>
@@ -138,28 +120,37 @@
           <form>
             <label for="start-date">Fecha de inicio:</label>
             <input type="date" id="start-date" name="start-date" value="2023-01-01"><br>
-      
+
             <label for="end-date">Fecha de finalización:</label>
             <input type="date" id="end-date" name="end-date" value="2023-12-31"><br>
-      
+
             <button type="submit">Actualizar</button>
           </form>
           
         </div>
+        <div class="progress-column-container">
+          <h2>Avance finaciero mensual</h2>
+          <p>El avance financiero de cada mes se puede ver en la siguiente grafica:</p>
+          <p>En desarollo...</p>
+        </div>
 
-        <form id="miFormularioAvances">
-          <label for="columnasAvances">Selecciona una columna:</label><br>
-          <select id="columnasAvances" name="columna"></select>
-          <br>
-          <label for="miCuadroAvances">Busqueda:</label><br>
-          <input type="text" id="miCuadroAvances" name="miCuadro"><br>
-          <button type="submit">Buscar</button>
-        </form>
-        
-        <table id="miTablaAvances">
-          <tbody id="resultadoBusquedaAvances">
-          </tbody>
-        </table>
+        <div class="formulario-avances">
+          <h2>Tituo</h2>  <!-- No se para que es este formulario pongan aqui un titulo y descripcion de lo que hace-->
+          <p>Descripción</p>
+          <form id="miFormularioAvances">
+            <label for="columnasAvances">Selecciona una columna:</label><br>
+            <select id="columnasAvances" name="columna"></select>
+            <br>
+            <label for="miCuadroAvances">Busqueda:</label><br>
+            <input type="text" id="miCuadroAvances" name="miCuadro"><br>
+            <button type="submit">Buscar</button>
+          </form>
+          
+          <table id="miTablaAvances">
+            <tbody id="resultadoBusquedaAvances">
+            </tbody>
+          </table>
+        </div>
 
       </section>
 <!--**************************************************************************************************-->
@@ -207,7 +198,7 @@
       <section id ="formulario">
         <div id="personal_content_form">
           <h2>Formulario para mandar reportes</h2>
-          <p>Puedes enviar tu reporte aqui</p>
+          <p>Puedes inviar tu reporte aqui</p>
         </div>
 
         <form id="form_reporte">
@@ -232,90 +223,14 @@
       </section>
 <!--**************************************************************************************************-->
 
-<!--***************************************estimaciones******************************************-->
-<section id="estimaciones2">
-  <div class="estimaciones_content">
-    <h2>Estimaciones</h2>
-    <p>El Residente tiene la tarea de hacer la validación final de las estimaciones:</p>
-    <p>En desarrollo..</p>
-  </div>
-
-  <div class="estimaciones_data_container"></div>
-</section>
-<!--**************************************************************************************************-->
-
-<!--*****************************Formulario_Estimaciones**********************************************************-->
-      <section id="Captura_Formulario">
-        <div class="centered-textarea">
-          <h2>Puedes Realizar tu Estimacion aqui</h2>
-        </div>
-        <div class="centered-textarea">
-          <select id="meses">
-              <option value="" selected disabled>Escoge el mes</option>
-              <option value="Enero">Enero</option>
-              <option value="Febrero">Febrero</option>
-              <option value="Marzo">Marzo</option>
-              <option value="Abril">Abril</option>
-              <option value="Mayo">Mayo</option>
-              <option value="Junio">Junio</option>
-              <option value="Julio">Julio</option>
-              <option value="Agosto">Agosto</option>
-              <option value="Septiembre">Septiembre</option>
-              <option value="Octubre">Octubre</option>
-              <option value="Noviembre">Noviembre</option>
-              <option value="Diciembre">Diciembre</option>
-          </select>
-      </div>
-        <div id="container" class="container">
-        </div>
-        <button id="showSelected">Mostrar Seleccionados</button><br>
-        <div class="centered-textarea">
-          <p>Introduce Razon Social</p>
-          <textarea id="userInput0" placeholder="Escribe aquí..." rows="4" cols="50"></textarea>
-      </div>
-      <div class="centered-textarea">
-          <p>Justificacion</p>
-          <textarea id="userInput1" placeholder="Escribe aquí..." rows="4" cols="50"></textarea>
-      </div>
-      <button id="sendData" class="centered-textarea">Enviar</button>
-
+<!--*****************************Estimaciones**********************************************************-->
+      <section id="estimaciones">
+        <select id="estimacionNum" name="nuM">
+        </select>
+        <div id="tablaResultados"></div>
       </section>
 <!--**************************************************************************************************-->
-
-<!--*****************************estimaciones**********************************************************-->
-<section id="estimaciones">
-  <select id="estimacionNum" name="nuM">
-  </select>
-  <div id="tablaResultados"></div>
-</section>
-<!--**************************************************************************************************-->
-
-<!--*****************************Subir_concepto**********************************************************-->
-<section id="Subir_concepto">
-  <div>
-    <h2>Puede introducir aqui un concepto</h2>
-  </div>
-  <form id="myForm" method="post">
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" id="nombre" name="nombre"><br>
-    
-    <label for="descripcion">Descripción:</label><br>
-    <textarea id="descripcion" name="descripcion"></textarea><br>
-  
-    <label for="unidad">Unidad:</label><br>
-    <input type="number" id="unidad" name="unidad" pattern="[0-9]*"><br>
-  
-    <label for="precio">Precio:</label><br>
-    <input type="number" id="precio" name="precio" pattern="[0-9]*"><br>
-  
-    <button type="button" id="submitButton">Submit</button>	
-  </form>
-</section>
-<!--**************************************************************************************************-->
-
-
     </main>
-    <script src="js/funCaptura.js"></script>
     <script type="text/javascript" src="js/funPruebaMenu.js"></script>
   </body>
 </html>

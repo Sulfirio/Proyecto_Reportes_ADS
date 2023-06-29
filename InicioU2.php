@@ -1,4 +1,11 @@
+<<<<<<< HEAD:InicioU2.html
 <!--PESTAÑA DE SUPERVISORES-->
+=======
+<?php
+include('php/inicioUser.php');
+?>
+
+>>>>>>> 013e2fd15188cbdfd063daac8499c4f150af5791:InicioU2.php
 <!DOCTYPE html>
 <html>
   <head>
@@ -45,7 +52,11 @@
   <body>
 
     <header>
+<<<<<<< HEAD:InicioU2.html
       <h1 id="content"></h1>
+=======
+      <h1>Superintendente: <?php echo $userID; ?></h1>
+>>>>>>> 013e2fd15188cbdfd063daac8499c4f150af5791:InicioU2.php
       <nav>
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
