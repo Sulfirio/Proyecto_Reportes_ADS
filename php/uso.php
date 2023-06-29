@@ -8,7 +8,15 @@ if(isset($_SESSION['userID'])){
     $u = mysqli_fetch_row($userType);
 
     if($u[0] == 1){
-        echo "Superintendente: " . $userID;
+        echo "Residente: " . $userID;
+
+        $fr = $conexion->query("SELECT frenteObra from residente WHERE IDUser = '{$userID}'");
+        $temp = 0;
+        while($row = mysqli_fetch_array($fr)){
+            $temp = $row['frenteObra'];
+        }
+        $_SESSION['frenteRes'] = $temp;
+        
     }
     if($u[0] == 2){
         echo "Supervisor: " . $userID;
@@ -21,14 +29,7 @@ if(isset($_SESSION['userID'])){
         $_SESSION['frente'] = $send;
     }
     if($u[0] == 3){
-        echo "Residente: " . $userID;
-
-        $fr = $conexion->query("SELECT frenteObra from residente WHERE IDUser = '{$userID}'");
-        $temp = 0;
-        while($row = mysqli_fetch_array($fr)){
-            $temp = $row['frenteObra'];
-        }
-        $_SESSION['frenteRes'] = $temp;
+        echo "Superintendente: " . $userID;
     }
     if($u[0] == 4){
         echo "Personal directivo: " . $userID;

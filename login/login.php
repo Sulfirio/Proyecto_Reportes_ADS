@@ -27,7 +27,7 @@
                                         <form action="loginP.php" method="POST">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" name="inputEmail" type="" placeholder="name@example.com o userName" />
-                                                <label for="inputEmail">Correo</label>
+                                                <label for="inputEmail">Usuario</label>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputPassword" name="inputPassword" type="password" placeholder="Password" />
