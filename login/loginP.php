@@ -38,16 +38,16 @@ if ($row = mysqli_fetch_assoc($result)) {
     // Redirigir a diferentes páginas según el tipo de usuari
     switch ($userType) {
         case 1:
-            header("Location: ../InicioU1.php");
+            header("Location: ../InicioU1.html");
             break;
         case 2:
-            header("Location: ../InicioU2.php");
+            header("Location: ../InicioU2.html");
             break;
         case 3:
-            header("Location: ../InicioU3.php");
+            header("Location: ../InicioU3.html");
             break;
         case 4:
-            header("Location: ../InicioU4.php");
+            header("Location: ../InicioU4.html");
             break;
     }
 } else {
