@@ -17,6 +17,7 @@
     <script src="js/funWho.js"></script>
     <script src="js/funAprobarInten.js"></script>
     <script src="js/funVisualFrente-1.js"></script>
+    <script src="js/funVisualRepor-3-inten.js"></script>
     
     <!--REUBICAR LOS ESTILOS PLIS-->
     <style>
@@ -91,46 +92,9 @@
 
     <!--***************************************reportes******************************************-->
           <section id="reportes">
-            <div class="reportes_content">
-              <h2>Reportes</h2>
-              <p>
-                Dentro de los reportes que el supervisor puede ver/subir/editar se encuentran:
-                <ul>
-                  <li>Reporte de Actividades Realizadas</li>
-                  <li>Reporte global</li>
-                  <li>Incidencias</li>
-                </ul>
-              </p>
-            </div>
-
-            <div class="reportes_data_container"></div>
-            <div id="personal_content_form">
-              <h2>Formulario para mandar reportes</h2>
-              <p>Puedes enviar tu reporte aqui</p>
-
-              <form id="form_reporte">
-                <label for="idCapturador">Id de Capturador</label><br>
-                <input type="text" id="idCapturador" name="capturador"><br>
-                
-                <label for="numero">Nivel de Urgercia</label><br>
-                <select id="numero" name="numero">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select><br>
-        
-                <label>¿El Reporte esta aprobado?</label><br>
-                <input type="radio" id="1" name="aprobado" value="SI">
-                <label for="1">SI</label><br>
-                <input type="radio" id="3" name="aprobado" value="NO">
-                <label for="3">NO</label><br><br>
-        
-                <input type="submit" value="Enviar">
-              </form>
-            </div>
             <div class="reportes_ver">
               <h2>Aqui puedes ver los reportes</h2>
-              <p>En desarrollo...</p>
+              <div class="Reporte_visual"></div>
             </div>
           </section>
     <!--**************************************************************************************************-->

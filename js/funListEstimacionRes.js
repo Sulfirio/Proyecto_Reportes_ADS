@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $.getJSON("php/estimaExiste.php", function(data) {
+    $.getJSON("php/estimaExisteResidente.php", function(data) {
         var select = $("#estimacionNum");
         select.append('<option selected="true" disabled="disabled">Elige una columna</option>');
         $.each(data, function(index, value) {
