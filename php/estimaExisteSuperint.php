@@ -16,7 +16,6 @@
     for($i = 0; $i < 100; $i++){
         if($numeros[$i] == 1){
             array_push($total,$i);
-            echo $i;
         }
     }
 

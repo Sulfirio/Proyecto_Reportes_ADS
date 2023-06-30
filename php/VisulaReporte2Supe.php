@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <?php
     include 'conexion.php';
-    session_start();    
-    $fr = $_SESSION['frenteRes'];
     $var = 1;
-    $datosEst = $conexion->query("SELECT * FROM reporte WHERE FrenteObra = {$fr[0]} and aprobado = 1;");
+    $datosEst = $conexion->query("SELECT * FROM reporte WHERE aprobado = 1;");
     ?>
 <html lang = "es">
 <head>

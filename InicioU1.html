@@ -10,14 +10,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/funSecCatalogo.js"></script>
-    <script src="js/funSecPersonal.js"></script>
     <script src="js/funSecFrentes.js"></script>
     <script src="js/funFormulario.js"></script>
-    <script src="js/funListEstimacion.js"></script>
     <script src="js/funWho.js"></script>
     <script src="js/funAprobarInten.js"></script>
     <script src="js/funVisualFrente-1.js"></script>
     <script src="js/funVisualRepor-3-inten.js"></script>
+    <script src="js/funListEstimacionInten.js"></script>
+    <script src="js/funSecPeronalIntent.js"></script>
+    <script src="js/FunVisualContra.js"></script>
     
     <!--REUBICAR LOS ESTILOS PLIS-->
     <style>
@@ -59,14 +60,15 @@
       <nav>
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
-          <li><a href="#reportes">Reportes</a></li>
           <li><a href="#frentes">Frentes</a></li>
-          <li><a href="#avances">Avances generales</a></li>
-          <li><a href="#grafica">Grafica de Gastos</a></li>
           <li><a href="#personal">Personal</a></li>
+          <li><a href="#reportes">Reportes</a></li>
           <li><a href="#estimaciones">Estimaciones</a></li>
-          <li><a href="#catalogo">Catalogo</a></li>
+          <li><a href="#catalogo">Conceptos</a></li>
+          <li><a href="#Contratistas">Contratistas</a></li>
           <li><a href="#Aprobar_Estimacion">Aprobacion de Estimacion</a></li>
+          <li><a href="#grafica">Grafica de Gastos</a></li>
+          <li><a href="#avances">Avances generales</a></li>
           <!-- 
           <li><a href="#captura">Captura de documentos</a></li>
           <li><a href="#consulta">Consulta</a></li>
@@ -138,14 +140,14 @@
               </form>
               
             </div>
-            <div class="progress-column-container">
+
+            <!-- <div class="progress-column-container">
               <h2>Avance finaciero mensual</h2>
               <p>El avance financiero de cada mes se puede ver en la siguiente grafica:</p>
               <p>En desarollo...</p>
             </div>
-
             <div class="formulario-avances">
-              <h2>Tituo</h2>  <!-- No se para que es este formulario pongan aqui un titulo y descripcion de lo que hace-->
+              <h2>Tituo</h2> 
               <p>Descripción</p>
               <form id="miFormularioAvances">
                 <label for="columnasAvances">Selecciona una columna:</label><br>
@@ -160,7 +162,7 @@
                 <tbody id="resultadoBusquedaAvances">
                 </tbody>
               </table>
-            </div>
+            </div> -->
 
           </section>
     <!--**************************************************************************************************-->
@@ -247,7 +249,7 @@
       <select id="estimacionNum" name="nuM">
       </select>
       <div id="tablaResultados"></div>
-      <div class="estimaciones_data_container"></div>
+      <!--<div class="estimaciones_data_container"></div>-->
     </section>
     <!--**************************************************************************************************-->
 
@@ -269,6 +271,15 @@
       <div id="tablaResultadosApro"></div>
       <button id="btnAceptar" style="display:none">Aceptar</button>
       <button id="btnRechazar" style="display:none">Rechazar</button>
+    </section>
+    <!--**************************************************************************************************-->
+
+    <!--***************************************Contratistas******************************************-->
+    <section id="Contratistas">
+      <div>
+        <h2>Aqui puedes ver a los contratistas</h2>
+        <div class="Contratista_ver"></div>
+      </div>
     </section>
     <!--**************************************************************************************************-->
 
