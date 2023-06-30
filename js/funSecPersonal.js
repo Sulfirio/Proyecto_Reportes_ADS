@@ -1,7 +1,7 @@
 $(function() {
   $('.tab').on('click', function() {
     var page = $(this).data('page');
-    $('.personal_content').load(page + '.html');
+    $('.personal_content').load(page + '.html');  //personal_content
   });
 
   // Cargar datos desde el archivo PHP usando AJAX
@@ -10,7 +10,7 @@ $(function() {
     type: 'POST',
     success: function(response) {
       // Insertar los datos en un elemento de la página
-      $('.personal_data_container').html(response);
+      $('.personal_data_container').html(response);   //Data_container
     },
     error: function() {
       alert('Error al cargar los datos.');

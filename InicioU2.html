@@ -16,6 +16,7 @@
     <script src="js/funListEstimacionesSupe.js"></script>
     <script src="js/funAprobar.js"></script>
     <script src="js/FunAprobarRepo.js"></script>
+    <script src="js/funVisulaRepo-2-sup.js"></script>
     
 
     <!--REUBICAR LOS ESTILOS PLIS-->
@@ -50,12 +51,12 @@
         <ul>
           <li><a href="#inicio" class="active">Inicio</a></li>
           <li><a href="#reportes">Reportes</a></li>
-          <li><a href="#avances">Avances generales</a></li>
+          <li><a href="#estimaciones">Estimaciones</a></li>
+          <li><a href="#catalogo">Conceptos</a></li>
+          <li><a href="#personal"> Personal del Frente</a></li>
           <li><a href="#Aprobar_Estimacion">Aprobar Estimacion</a></li>
           <li><a href="#Aprobar_Reportes">Aprobar Reportes</a></li>
-          <li><a href="#personal">Personal</a></li>
-          <li><a href="#estimaciones">Estimaciones</a></li>
-          <li><a href="#catalogo">Catalogo</a></li>
+          <!--<li><a href="#avances">Avances generales</a></li>-->
           <!-- <li><a href="#frentes">Frentes</a></li>
           <li><a href="#captura">Captura de documentos</a></li>
           <li><a href="#consulta">Consulta</a></li>
@@ -76,7 +77,7 @@
 
 <!--***************************************reportes******************************************-->
       <section id="reportes">
-        <div class="reportes_content">
+       <!--<div class="reportes_content">
           <h2>Reportes</h2>
           <p>
             Dentro de los reportes que el supervisor puede ver/subir/editar se encuentran:
@@ -112,10 +113,10 @@
 
             <input type="submit" value="Enviar">
           </form>
-        </div>
+        </div>-->
         <div class="reportes_ver">
           <h2>Aqui puedes ver los reportes</h2>
-          <p>En desarrollo...</p>
+          <div class="Reporte_visual"></div>
         </div>
       </section>
 <!--**************************************************************************************************-->
@@ -141,13 +142,9 @@
 
 <!--***************************************estimaciones******************************************-->
       <section id="estimaciones">
-        <div class="estimaciones_content">
-          <h2>Estimaciones</h2>
-          <p>El superintendente tiene la tarea de hacer la estimaciones:</p>
-          <p>En desarrollo..</p>
-        </div>
-
-        <div class="estimaciones_data_container"></div>
+        <select id="estimacionNum" name="nuM">
+        </select>
+        <div id="tablaResultados"></div>
       </section>
 <!--**************************************************************************************************-->
 
@@ -217,7 +214,7 @@
 
         <div class="personal_data_container"></div>
 
-        <form id="miFormulario">
+        <!--<form id="miFormulario">
           <label for="columnas">Selecciona una columna:</label><br>
           <select id="columnas" name="columna"></select>
           <br>
@@ -229,7 +226,7 @@
         <table id="miTabla">
           <tbody id="resultadoBusqueda">
           </tbody>
-        </table>
+        </table>-->
 
       </section>
 <!--**************************************************************************************************-->

@@ -1,34 +1,26 @@
 <?php
-    include 'conexion.php';    
-    $datos = $conexion->query("SELECT * FROM estimacion");
-    $count = 1;
-    $array = new SplFixedArray(100);
-    for($i = 0; $i < $array->getSize(); $i++){
-        $array[$i] = 0;
-    }
-    while($row = mysqli_fetch_row($datos)){
-        if($row[0] == $count){
-            $array[$count] = 1;
-            /*echo $count;*/
-            $count = $count + 1;
-        }
-    }
-    $noEst = array();
-    for($i = 0; $i < $array->getSize(); $i++){
-        if($array[$i] ==1){            
-            array_push($noEst, $array[$i]);
-            /*8echo $array[$i];*/
-        }
-    }
+    session_start();
+    include 'conexion.php';  
+    $fr = $_SESSION['frente']; 
+    $var = 5;
+    $datos = $conexion->query("SELECT * FROM estimacion WHERE nvAprobacion = 3 and noFrenteObra = {$fr[0]};"); 
     $numeros = array();
-    for($i = 0; $i < ($count-1); $i++){
-        array_push($numeros, ($i+1));
+    for($i = 0; $i<100;$i++){
+        array_push($numeros,0);
     }
-    
 
-    /*foreach ($numeros as $numero) {
-        echo $numero . ", ";
-    }*/
-    
-    echo json_encode($numeros);
+    while($row = mysqli_fetch_array($datos)){
+        $numeros[$row[0]] = 1;
+    }
+
+    $total = array();
+
+    for($i = 0; $i < 100; $i++){
+        if($numeros[$i] == 1){
+            array_push($total,$i);
+            //echo $i;
+        }
+    }
+
+    echo json_encode($total);
 ?>
